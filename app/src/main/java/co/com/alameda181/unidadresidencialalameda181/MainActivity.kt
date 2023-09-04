@@ -13,8 +13,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import co.com.alameda181.unidadresidencialalameda181.ui.theme.UnidadResidencialAlameda181Theme
 
 class MainActivity : ComponentActivity() {
+    var stringName:String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        stringName = resources.getString(R.string.app_name)
         setContent {
             UnidadResidencialAlameda181Theme {
                 // A surface container using the 'background' color from the theme
@@ -22,7 +24,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    Greeting(resources.getString(R.string.app_name))
                 }
             }
         }
@@ -32,7 +34,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-        text = "Hello $name!",
+        text = name,
         modifier = modifier
     )
 }
@@ -41,6 +43,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     UnidadResidencialAlameda181Theme {
-        Greeting("Android")
+        Greeting("Unidad Residencial Alameda 181")
     }
 }
