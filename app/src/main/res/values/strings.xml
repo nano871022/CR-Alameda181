@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">Unidad Residencial Alameda 181</string>
+    <string name="app_name">Alameda 181</string>
+    <string name="slide_menu">Menu</string>
+    <string name="menu_more">Mas Opciones</string>
+
+    <array name="menus">
+        <item>Home</item>
+        <item>Horarios</item>
+    </array>
+
 </resources>
