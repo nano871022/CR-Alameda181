@@ -1,11 +1,37 @@
 <resources>
     <string name="app_name">Alameda 181</string>
-    <string name="slide_menu">Menu</string>
-    <string name="menu_more">Mas Opciones</string>
+    <string name="name_first">Alameda</string>
+    <string name="name_second">181</string>
+    <string name="slide_menu">Menú</string>
+    <string name="menu_more">Más Opciones</string>
+    <string name="schedules">Horarios</string>
+    <string name="payment_administration">Pago Administración</string>
 
     <array name="menus">
         <item>Home</item>
-        <item>Horarios</item>
+        <item>Ubicación</item>
+        <item>Información Generál</item>
+        <item>Información Pagos</item>
+        <item>Información Mudanzas</item>
+        <item>Información Alquiler</item>
+        <item>Reglamento</item>
     </array>
+
+    <array name="menu_settings">
+        <item>Acerca de</item>
+    </array>
+
+    <string name="home_info">
+        lorereereasdasd
+        adasdasdasdadasda
+        asdasdasd asdasdasd asdasda
+        s dasdasdasd adasdasdasdassdasdass
+        asdasdadad
+        ad asd asdasd
+        asdasd
+        a
+
+        adasdasd
+    </string>
 
 </resources>
