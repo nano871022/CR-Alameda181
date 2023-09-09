@@ -35,4 +35,7 @@
         adasdasd
     </string>
 
+    <string name="payment_link">
+        https://www.mipagoamigo.com/MPA_WebSite/ServicePayments/StartPayment?id=4601&amp;searchedCategoryId=&amp;searchedAgreementName=CONJUNTO%20RESIDENCIAL%20ALAMEDA%20181%20P%20H
+    </string>
 </resources>

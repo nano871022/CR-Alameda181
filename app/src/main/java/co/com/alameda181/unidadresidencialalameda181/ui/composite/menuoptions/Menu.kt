@@ -47,7 +47,7 @@ fun MenuOptions(expandedRemember:MutableState<Boolean>,onClick: (String) -> Unit
             , horizontalAlignment = Alignment.CenterHorizontally
         ) {
            getMenu(resource).forEach {
-                MenuItems(it, onClick = onClick)
+                MenuItems(it,expandedRemember, onClick = onClick)
             }
         }
     }
@@ -60,7 +60,7 @@ fun getMenu(resource:Resources):List<MenuItem>{
 }
 
 @Composable
-fun MenuItems(menuItem:MenuItem,onClick : (String) -> Unit){
+fun MenuItems(menuItem:MenuItem,expandedRemember:MutableState<Boolean>,onClick : (String) -> Unit){
     DropdownMenuItem(
         text = {
             Row(
@@ -75,6 +75,7 @@ fun MenuItems(menuItem:MenuItem,onClick : (String) -> Unit){
         }
         , onClick = {
             onClick(menuItem.route)
+            expandedRemember.value = !expandedRemember.value
         }
     )
 }

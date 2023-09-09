@@ -1,5 +1,7 @@
 package co.com.alameda181.unidadresidencialalameda181.ui.composite.topbar
 
+import android.content.Intent
+import android.net.Uri
 import android.widget.Toast
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -33,6 +35,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import co.com.alameda181.unidadresidencialalameda181.R
@@ -53,6 +56,7 @@ fun HomeTopAppBar(
     val context = LocalContext.current.applicationContext
     val rememberExpanderOptions = remember { mutableStateOf(false) }
     val coroutineScope = rememberCoroutineScope()
+    val resource = context.resources
     TopAppBar(title = {
                 Text(buildAnnotatedString {
                     withStyle(style=SpanStyle(color=Color.White)){append(stringResource(id = R.string.name_first))}
@@ -76,7 +80,10 @@ fun HomeTopAppBar(
                 actions = {
 
                     IconButton(onClick = {
-                        NavTo.nav(navController,TopMenuOption.ADMINISTRATION_PAYMENT.name)
+                        val uri = Uri.parse(resource.getString(R.string.payment_link))
+                        val intent = Intent(Intent.ACTION_VIEW, uri)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        context.startActivity(intent)
                     }) {
                         Icon(painter = painterResource(id = TopMenuOption.ADMINISTRATION_PAYMENT.icon)
                             , contentDescription = stringResource(id = TopMenuOption.ADMINISTRATION_PAYMENT.title))
