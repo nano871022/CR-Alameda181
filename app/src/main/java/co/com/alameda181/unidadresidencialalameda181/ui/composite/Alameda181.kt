@@ -29,6 +29,7 @@ import co.com.alameda181.unidadresidencialalameda181.ui.composite.topbar.HomeTop
     val scope = rememberCoroutineScope()
     val navController = rememberNavController()
 
+
     ModalNavigationDrawer(
         drawerState = state
         , drawerContent = { drawerContent(scope = scope, state = state, navController = navController) }

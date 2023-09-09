@@ -6,20 +6,21 @@
     <string name="menu_more">Más Opciones</string>
     <string name="schedules">Horarios</string>
     <string name="payment_administration">Pago Administración</string>
+    <string name="kind_unit">Unidad Residencial</string>
+    <string name="address">carrera 181 # 1 - 16</string>
+    <string name="description_logo">Logo Unidad Residencial Alameda 181</string>
+    <string name="menu_about">Acerca de</string>
 
-    <array name="menus">
-        <item>Home</item>
-        <item>Ubicación</item>
-        <item>Información Generál</item>
-        <item>Información Pagos</item>
-        <item>Información Mudanzas</item>
-        <item>Información Alquiler</item>
-        <item>Reglamento</item>
-    </array>
 
-    <array name="menu_settings">
-        <item>Acerca de</item>
-    </array>
+        <string name="menu_home">Home</string>
+        <string name="menu_location">Ubicación</string>
+        <string name="menu_general_inforamtion">Información Generál</string>
+        <string name="menu_payment_information">Información Pagos</string>
+        <string name="menu_movement_information">Información Mudanzas</string>
+        <string name="menu_renting_information">Información Alquiler</string>
+        <string name="menu_local_repairs">Reparaciones Locativas</string>
+        <string name="menu_regulation">Reglamento</string>
+
 
     <string name="home_info">
         lorereereasdasd

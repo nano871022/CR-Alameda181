@@ -15,30 +15,61 @@ import androidx.compose.ui.zIndex
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import co.com.alameda181.unidadresidencialalameda181.ui.composite.home.HomeScreen
+import co.com.alameda181.unidadresidencialalameda181.ui.composite.Alameda181
+import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.HomeScreen
+import co.com.alameda181.unidadresidencialalameda181.ui.composite.splash.SplashScreen
+import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.About
+import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.AdministrationPayment
+import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.GeneralInformation
+import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.LocalRepairs
+import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.Location
+import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.MovementInformation
+import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.PaymentInformation
+import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.Regulation
+import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.RentalInformation
+import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.Schedule
+import co.com.alameda181.unidadresidencialalameda181.utils.DrawerRoutes
+import co.com.alameda181.unidadresidencialalameda181.utils.MAIN_MENU
+import co.com.alameda181.unidadresidencialalameda181.utils.MenuOptions
+import co.com.alameda181.unidadresidencialalameda181.utils.TopMenuOption
+
+@Composable
+fun NavigatorSplash(navController: NavHostController,modifier:Modifier,context:Context){
+    NavHost(navController = navController, startDestination = MAIN_MENU.SPLASH.name,modifier = modifier) {
+        composable(MAIN_MENU.SPLASH.name) {
+            SplashScreen(navController = navController)
+        }
+
+        composable(MAIN_MENU.MAIN.name) {
+            Alameda181(context = context)
+        }
+    }
+}
 
 @Composable
 fun Navigator(navController: NavHostController,modifier:Modifier,context:Context){
-    NavHost(navController = navController, startDestination = "home",modifier = modifier) {
+    NavHost(navController = navController, startDestination = DrawerRoutes.HOME.name,modifier = modifier) {
 
-        composable("home") { HomeScreen(context = context) }
+        composable(DrawerRoutes.HOME.name) { HomeScreen(context = context) }
 
-        composable("acerca de"){
-            Text(text = "Acerca De",modifier = Modifier.zIndex(123f).border(2.dp, Color.Red,
-                RectangleShape
-            ).fillMaxWidth().fillMaxHeight().padding(50.dp))
-        }
+        composable(MenuOptions.ABOUT.name){About()}
 
-        composable("schedules"){
-            Text(text = "Schedules",modifier = Modifier.zIndex(123f).border(2.dp, Color.Red,
-                RectangleShape
-            ).fillMaxWidth().fillMaxHeight().padding(50.dp))
-        }
+        composable(TopMenuOption.SCHEDULES.name){Schedule()}
 
-        composable("administrationpayment"){
-            Text(text = "Administration Payment",modifier = Modifier.zIndex(123f).border(2.dp, Color.Red,
-                RectangleShape
-            ).fillMaxWidth().fillMaxHeight().padding(50.dp))
-        }
+        composable(TopMenuOption.ADMINISTRATION_PAYMENT.name){AdministrationPayment()}
+
+        composable(DrawerRoutes.LOCATION.name){ Location() }
+
+        composable(DrawerRoutes.REGULATION.name){ Regulation() }
+
+        composable(DrawerRoutes.GENERAL_INFORMATION.name){ GeneralInformation() }
+
+        composable(DrawerRoutes.PAYMENT_INFORMATION.name){ PaymentInformation() }
+
+        composable(DrawerRoutes.MOVEMENT_INFORMATION.name){ MovementInformation() }
+
+        composable(DrawerRoutes.LOCAL_REPAIRS.name){ LocalRepairs() }
+
+        composable(DrawerRoutes.RENTAL_INFORMATION.name){ RentalInformation() }
     }
 }

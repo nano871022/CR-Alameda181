@@ -37,6 +37,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import co.com.alameda181.unidadresidencialalameda181.R
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.menuoptions.MenuOptions
+import co.com.alameda181.unidadresidencialalameda181.utils.MenuOptions
+import co.com.alameda181.unidadresidencialalameda181.utils.TopMenuOption
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
@@ -74,15 +76,15 @@ fun HomeTopAppBar(
                 actions = {
 
                     IconButton(onClick = {
-                        NavTo.nav(navController,"AdministrationPayment")
+                        NavTo.nav(navController,TopMenuOption.ADMINISTRATION_PAYMENT.name)
                     }) {
-                        Icon(painter = painterResource(id = R.drawable.baseline_attach_money_24)
-                            , contentDescription = stringResource(id = R.string.payment_administration))
+                        Icon(painter = painterResource(id = TopMenuOption.ADMINISTRATION_PAYMENT.icon)
+                            , contentDescription = stringResource(id = TopMenuOption.ADMINISTRATION_PAYMENT.title))
                     }
 
-                    IconButton(onClick = { NavTo.nav(navController,"Schedules") }) {
-                        Icon(imageVector = Icons.Default.DateRange
-                            , contentDescription = stringResource(id = R.string.schedules))
+                    IconButton(onClick = { NavTo.nav(navController,TopMenuOption.SCHEDULES.name) }) {
+                        Icon(painter = painterResource(id = TopMenuOption.SCHEDULES.icon)
+                            , contentDescription = stringResource(id = TopMenuOption.SCHEDULES.title))
                     }
 
                     IconButton(onClick = {

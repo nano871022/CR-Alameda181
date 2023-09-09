@@ -1,4 +1,4 @@
-package co.com.alameda181.unidadresidencialalameda181.ui.composite.home
+package co.com.alameda181.unidadresidencialalameda181.ui.composite.views
 
 import android.content.Context
 import androidx.compose.foundation.ExperimentalFoundationApi

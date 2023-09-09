@@ -1,6 +1,8 @@
 package co.com.alameda181.unidadresidencialalameda181.ui.composite.menuoptions
 
 import android.content.Context
+import android.content.res.Resources
+import android.view.View
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -27,11 +29,14 @@ import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import co.com.alameda181.unidadresidencialalameda181.R
+import co.com.alameda181.unidadresidencialalameda181.model.MenuItem
+import co.com.alameda181.unidadresidencialalameda181.utils.MenuOptions
 import kotlinx.coroutines.launch
 
 @Composable
 fun MenuOptions(expandedRemember:MutableState<Boolean>,onClick: (String) -> Unit) {
     val context = LocalContext.current.applicationContext
+    val resource = context.resources
     DropdownMenu(
         expanded = expandedRemember.value
         , onDismissRequest = { expandedRemember.value = !expandedRemember.value}
@@ -41,29 +46,35 @@ fun MenuOptions(expandedRemember:MutableState<Boolean>,onClick: (String) -> Unit
             , verticalArrangement = Arrangement.Center
             , horizontalAlignment = Alignment.CenterHorizontally
         ) {
-           stringArrayResource(id = R.array.menu_settings).forEach {
-                MenuItems(text = it, onClick = onClick)
+           getMenu(resource).forEach {
+                MenuItems(it, onClick = onClick)
             }
         }
     }
 }
 
+fun getMenu(resource:Resources):List<MenuItem>{
+  return MenuOptions.values().map {
+      MenuItem(name=resource.getString(it.title),iconDrawer=it.icon,route=it.name)
+  }.toList()
+}
+
 @Composable
-fun MenuItems(text:String,onClick : (String) -> Unit){
+fun MenuItems(menuItem:MenuItem,onClick : (String) -> Unit){
     DropdownMenuItem(
         text = {
             Row(
                 modifier = Modifier.fillMaxSize()
             ) {
                 Icon(
-                    imageVector = Icons.Default.Info,
-                    contentDescription = stringResource(id = R.string.menu_more)
+                    painter = painterResource(id = menuItem.iconDrawer),
+                    contentDescription = menuItem.name
                 )
-                Text(text = text)
+                Text(text = menuItem.name)
             }
         }
         , onClick = {
-            onClick(text)
+            onClick(menuItem.route)
         }
     )
 }

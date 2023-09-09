@@ -1,15 +1,21 @@
 package co.com.alameda181.unidadresidencialalameda181.ui.composite.drawer
 
-import android.view.MenuItem
+import android.util.Log
+import android.view.View
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import co.com.alameda181.unidadresidencialalameda181.R
+import co.com.alameda181.unidadresidencialalameda181.model.MenuItem
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 @Composable
 fun DrawerBody(
-    menuItems: List<String>
+    menuItems: List<MenuItem>
     , scope: CoroutineScope
     , modifier: Modifier = Modifier
     , onItemClick: (String) -> Unit
@@ -19,7 +25,7 @@ fun DrawerBody(
             DrawerItem( menuItem, modifier = Modifier){
                 scope.launch {
                 }
-                onItemClick(menuItem)
+                onItemClick(menuItem.route)
             }
 
         }
