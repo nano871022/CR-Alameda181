@@ -6,11 +6,14 @@
     <string name="menu_more">Más Opciones</string>
     <string name="schedules">Horarios</string>
     <string name="payment_administration">Pago Administración</string>
-    <string name="kind_unit">Unidad Residencial</string>
-    <string name="address">carrera 181 # 1 - 16</string>
-    <string name="description_logo">Logo Unidad Residencial Alameda 181</string>
+    <string name="kind_unit">Conjunto Residencial</string>
+    <string name="address">calle 181 # 18b - 82</string>
+    <string name="description_logo">Logo Conjunto Residencial Alameda 181</string>
     <string name="menu_about">Acerca de</string>
-
+    <string name="go_pse">Ir a portal de pagos</string>
+    <string name="schedule_administrator">Horarios Administrador</string>
+    <string name="contact_number">Números de Contacto</string>
+    <string name="contact_email">Correo Electrónico de Contacto</string>
 
         <string name="menu_home">Home</string>
         <string name="menu_location">Ubicación</string>
@@ -20,6 +23,8 @@
         <string name="menu_renting_information">Información Alquiler</string>
         <string name="menu_local_repairs">Reparaciones Locativas</string>
         <string name="menu_regulation">Reglamento</string>
+        <string name="number_contact">601 573 08 96</string>
+        <string name="email_contact">admonalameda181@gmail.com</string>
 
 
     <string name="home_info">
@@ -38,4 +43,126 @@
     <string name="payment_link">
         https://www.mipagoamigo.com/MPA_WebSite/ServicePayments/StartPayment?id=4601&amp;searchedCategoryId=&amp;searchedAgreementName=CONJUNTO%20RESIDENCIAL%20ALAMEDA%20181%20P%20H
     </string>
+
+    <string name="payment">
+        Redireccionando a Portal de Pagos
+    </string>
+
+    <string name="pse_info">
+        <![CDATA[
+        <p align="center">
+        PSE es un servicio de <b>ACH Colombia</b> que le permite realizar el <b>pago de administración</b> desde la comodidad de su casa u oficina.
+        </p>
+        ]]>
+    </string>
+
+    <string name="payment_info">
+        <![CDATA[
+        Una vez se da clic en el botón anterior se hace lo siguiente:
+<br/>
+<ol start="1">
+<li>
+    Se ingresa torre y apartamento, seguidos y en números, por ejemplo, si la torre es la número 1 y el apartamento el número 101, entonces se digita <b>1101</b>
+    </li>
+    <li>
+    Seguidamente se confirma el mismo número de torre y apartamento, igual que se digitó anteriormente.
+    </li>
+    <li>
+    Luego se digita el valor a pagar, el cual se encuentra en la cuenta de cobro entregada en los primeros dias de cada mes, lo cual corresponde a cuota de sostenimiento, cuota de mantenimiento de adoquines comunales, cuota mantenimiento de adoquines de visitantes, intereses de mora, cuotas extraordinarias, etc.
+    </li>
+    <li>
+    En la descripción se digita a que corresponde el pago que se esta realizando, por ejemplo, ADMINISTRACION MES DE NOVIEMBRE DE 2019.
+    </li>
+    <li>
+    Luego se da clic en el boton de <b>CONTINUAR</b>.
+    </li>
+    <li>
+    Seguidamente la pagina muestra que se seleccione el medio de pago con el cual se va a realizar,  el cual puede ser:
+    </li>
+    <li>
+    <ol><li>
+        <b>Banco Caja Social - Personas</b>: Esta opcion se usa para quienes tengan cuenta directamente en el banco a nombre personal y se hace un debito a su cuenta para realizar el pago.
+        </li><li>
+        <b>Banco Caja Social - Empresas</b>: Esta opcion se usa para quienes tengan cuenta directamente en el banco a nombre de su propia empresa  y se hace un debito a su cuenta para realizar el pago.
+        </li><li>
+        <b>PSE</b>: Esta opcion se usa para quienes tengan cuenta en otra entidad financiera y se hace un débito a su cuenta para realizar el pago.
+        </li>
+        </ol>
+        </li>
+    <li>
+    Para el caso de <b>PSE</b>, se seleccion tipo de persona natural, y luego se busca su banco.
+    </li><li>
+    Se digita el correo electrónico y el numero de celular.
+    </li><li>
+    Se da clic en <b>continuar</b>
+    </li><li>
+    Luego se da clic en pagar.
+    </li><li>
+    Seguidamente direcciona a la pagina de <b>PSE</b>, se digita el correo electronico registrado y clic en <b>IR AL BANCO</b>.
+    </li><li>
+    Una vez dentro de la pagina de su banco, se digita el nombre de <b>usuario y la contraseña</b> y continua el pago hasta finalizar el proceso, enviando la confirmación del pago.
+    </li>
+        ]]>
+    </string>
+    <string name="regulation_link">https://www.alameda181.com/images/PDF/Manual_Convivencia_CR_Alameda_181_PH-2021_2.pdf</string>
+    <string name="regulation_info">Descarga PDF</string>
+    <string name="regulation_title">Manual de Convivencia</string>
+
+    <string name="state">Bogotá - Cundinamarca</string>
+
+    <string name="time">Horario</string>
+    <string name="monday">Lunes</string>
+    <string name="tuesday">Martes</string>
+    <string name="wednesday">Miercoles</string>
+    <string name="thursday">Jueves</string>
+    <string name="friday">Viernes</string>
+    <string name="saturday">Sabado</string>
+
+    <string-array name="schedule_monday">
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="schedule_tuesday">
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="schedule_wednesday">
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+    </string-array>
+    <string-array name="schedule_thursday">
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+    </string-array>
+    <string-array name="schedule_friday">
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+    <string-array name="schedule_saturday">
+
+    </string-array>
+
+    <string-array name="schedule_time">
+        <item>8 am</item>
+        <item>9 am</item>
+        <item>10 am</item>
+        <item>11 am</item>
+        <item>12 pm</item>
+        <item>1 pm</item>
+        <item>2 pm</item>
+        <item>3 pm</item>
+        <item>4 pm</item>
+        <item>5 pm</item>
+    </string-array>
+
 </resources>

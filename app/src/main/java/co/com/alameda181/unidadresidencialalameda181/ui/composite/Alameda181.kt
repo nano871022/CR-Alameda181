@@ -24,7 +24,12 @@ import co.com.alameda181.unidadresidencialalameda181.ui.composite.topbar.HomeTop
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable fun Alameda181 (context: Context){
     val state = rememberDrawerState(DrawerValue.Closed)
-    val pagerState = rememberPagerState()
+    val pagerState = rememberPagerState(
+        initialPage = 0,
+        initialPageOffsetFraction = 0f
+    ) {
+        0
+    }
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
     val scope = rememberCoroutineScope()
     val navController = rememberNavController()
@@ -36,7 +41,7 @@ import co.com.alameda181.unidadresidencialalameda181.ui.composite.topbar.HomeTop
     ) {
         Scaffold(
             topBar = {
-                HomeTopAppBar(pagerState = PagerState(), scrollBehavior = scrollBehavior,drawerState = state, navController = navController)
+                HomeTopAppBar(pagerState = pagerState, scrollBehavior = scrollBehavior,drawerState = state, navController = navController)
             }, modifier = Modifier
         ) {
             Navigator(navController = navController, modifier = Modifier.padding(it), context = context)

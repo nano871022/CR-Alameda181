@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "co.com.alameda181.unidadresidencialalameda181"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "co.com.alameda181.unidadresidencialalameda181"
@@ -60,6 +60,9 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.material:material:1.5.1")
+    implementation("com.google.maps.android:maps-compose:2.11.4")
+    implementation("com.google.android.gms:play-services-maps:18.1.0")
 
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
     implementation("com.google.dagger:hilt-android:2.44")

@@ -8,6 +8,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.pager.PagerState
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material3.DrawerState
@@ -40,6 +41,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import co.com.alameda181.unidadresidencialalameda181.R
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.menuoptions.MenuOptions
+import co.com.alameda181.unidadresidencialalameda181.ui.theme.UnidadResidencialAlameda181Theme
 import co.com.alameda181.unidadresidencialalameda181.utils.MenuOptions
 import co.com.alameda181.unidadresidencialalameda181.utils.TopMenuOption
 import kotlinx.coroutines.launch
@@ -78,12 +80,9 @@ fun HomeTopAppBar(
                     }
                 },
                 actions = {
-
                     IconButton(onClick = {
-                        val uri = Uri.parse(resource.getString(R.string.payment_link))
-                        val intent = Intent(Intent.ACTION_VIEW, uri)
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        context.startActivity(intent)
+                        navController.navigate(TopMenuOption.ADMINISTRATION_PAYMENT.name){
+                        }
                     }) {
                         Icon(painter = painterResource(id = TopMenuOption.ADMINISTRATION_PAYMENT.icon)
                             , contentDescription = stringResource(id = TopMenuOption.ADMINISTRATION_PAYMENT.title))
@@ -125,10 +124,17 @@ object NavTo{
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
-@Preview
+@Preview(showBackground = true)
 fun previewAppBar(){
-    HomeTopAppBar(pagerState = PagerState()
-        , scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
-        , drawerState = DrawerState(DrawerValue.Closed)
-        , navController = rememberNavController())
+    val pagerState = rememberPagerState {
+        0
+    }
+    UnidadResidencialAlameda181Theme {
+        HomeTopAppBar(
+            pagerState = pagerState,
+            scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(),
+            drawerState = DrawerState(DrawerValue.Closed),
+            navController = rememberNavController()
+        )
+    }
 }
