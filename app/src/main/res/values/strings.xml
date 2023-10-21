@@ -14,6 +14,81 @@
     <string name="schedule_administrator">Horarios Administrador</string>
     <string name="contact_number">Números de Contacto</string>
     <string name="contact_email">Correo Electrónico de Contacto</string>
+    <string name="schedule_movement">Horarios de Mudanza</string>
+    <string name="schedule_repair">Horarios de Reparaciones Locativas e Instalación Servicios</string>
+    <string name="repair_information">Información Arreglos Locativos e Instalación de Servicios</string>
+    <string name="general_information">Información General</string>
+    <string name="schedule_movement_date"><![CDATA[
+    Lunes a Viernes de 8Am a 5pm <br/> Sábado de 8Am a 12pm
+    ]]></string>
+    <string name="holiday_dont_allow">Domingos y Festivos no es permitido</string>
+    <string name="schedule_out_dont_allow"><![CDATA[
+    Fuera de este horario <b>NO</b> es permitido
+    ]]></string>
+    <string name="schedule_movement_information">Información de la Mudanza</string>
+    <string name="schedule_movement_info_detail">
+        <![CDATA[
+        Toda Mudanza grande o pequeña tiene Horiario.<br/>Debe estar autorizado por el propietario o inmobiliaria y administración con <b>5 días de anticipación.</b><br/>Deben dejar un deposito.<br/>Pregunta en portería el formato.
+    ]]></string>
+    <string name="regulation_info_detail">
+        <![CDATA[
+            Vivir en <b>Propiedad Horizontal</b> nos obliga a cumplir ciertas normas<br/>Existe un <b>Manual de Convivencia</b> aprobado por los Copropietarios, donde están estipuladas las normas de convivencia en la Propiedad Horizontal, el cual busca mantener un equilibrio entre todos los residentes, haciendo que nuestra estancia sea agradable día a día.<br/> La inobservancia a estas normas puede generar <b>multas y sanciones de índole social y/o económica.</b><br/>Debe dejar un deposito.
+    ]]></string>
+
+    <string name="require_for_movement">Requisitos para Mudanzas</string>
+    <string name="require_for_movement_detail">
+        <![CDATA[
+        <ol start="1">
+            <li>Notificar a la Administración sobre la mudanza autorizada por el propietario o tenedor del inmueble <b>mínimo con 3 días de anticipación.</b>
+             En el correo electrónico de la administración</li>
+             <li>
+             Debe estar al día con la administración por todo concepto.<br/> Solicitar paz y salvo.
+             </li>
+             <li>
+               Ingreso o salida de todo tipo de - mobiliario - enseres - cajas - deben estar autorizados.
+             </li>
+             <li>
+             Respetar el horario indicado.
+             </li>
+             <li>
+              Antes de iniciar la mudanza debe llenar el formato de salida en portería y <b>dejar un deposito</b> esto con el fin de garantizar que no existan daños en las áreas comunes. <br/>
+              Una vez se finalice la mudanza, el guarda verificara las áreas comunes, que estén limpias y que no presenten daños y se procede a realizar la devolución del dinero.
+             </li>
+        </ol>
+        ]]>
+    </string>
+    <string name="repair_information_detail">
+        <![CDATA[
+            Arreglos Locativos e Instalaciones de Internet <br/>
+            Debe ser notificado por correo a la administración y debe estar autorizado.<br/>
+            Mínimo con 3 días de anticipación
+        ]]>
+    </string>
+    <string name="general_information_detail">
+        <![CDATA[
+        Señores Residentes<br/>
+        Estos son los medios de comunuicación con el conjunto Residencial<b/>
+        <ol>
+            <li>
+                Portería <b>601 573 08 96 - 321 292 42 42 - 316 525 26 50 </b><br/>
+                De estos números lo estarán llamando a anunciar sus visitas y domicilios
+            </li>
+            <li>
+                Whatsapp Administración <b>302 363 42 93</b> <br/>
+                (tenga en presente los horarios de atención)
+            </li>
+            <li>
+                Correo Electrónico <b>admonalameda181@gmail.com</b><br/>
+                Toda solicitud o autorizacion debe ser notificados por correo a administración Mínimo con 3 días de anticipación
+            </li>
+            <li>
+                <pagina del conjunto <b><link url="www.alameda181.com">www.alameda181.com</link></b>
+            </li>
+        </ol>
+        <br/>
+        <b>Puede realizar sus pagos de administración por PSE</b>
+        ]]>
+    </string>
 
         <string name="menu_home">Home</string>
         <string name="menu_location">Ubicación</string>

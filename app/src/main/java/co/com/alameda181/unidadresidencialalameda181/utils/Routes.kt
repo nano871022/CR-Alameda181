@@ -15,6 +15,7 @@ enum class DrawerRoutes constructor(val title:Int,val icon:Int){
 
 enum class MenuOptions constructor(val title:Int,val icon:Int){
   ABOUT(R.string.menu_about,R.drawable.baseline_info_24)
+
 }
 
 enum class TopMenuOption constructor(val title:Int,val icon:Int){

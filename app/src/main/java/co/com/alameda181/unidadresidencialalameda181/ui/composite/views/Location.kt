@@ -22,7 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import co.com.alameda181.unidadresidencialalameda181.R
-import co.com.alameda181.unidadresidencialalameda181.ui.theme.UnidadResidencialAlameda181Theme
+import co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.GoogleMap
@@ -80,7 +80,7 @@ fun Location (){
 @Composable
 @Preview(showBackground = true)
 fun previewLocation(){
-    UnidadResidencialAlameda181Theme {
+    co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme {
         Location()
     }
 }

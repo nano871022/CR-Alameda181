@@ -23,7 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import co.com.alameda181.unidadresidencialalameda181.R
-import co.com.alameda181.unidadresidencialalameda181.ui.theme.UnidadResidencialAlameda181Theme
+import co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme
 
 @Composable
 fun DrawerHeader() {
@@ -82,7 +82,7 @@ fun DrawerHeader() {
 @Preview
 @Composable
 fun previewHeader(){
-    UnidadResidencialAlameda181Theme {
+    co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme {
         DrawerHeader()
     }
 }

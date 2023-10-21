@@ -41,7 +41,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import co.com.alameda181.unidadresidencialalameda181.R
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.menuoptions.MenuOptions
-import co.com.alameda181.unidadresidencialalameda181.ui.theme.UnidadResidencialAlameda181Theme
+import co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme
 import co.com.alameda181.unidadresidencialalameda181.utils.MenuOptions
 import co.com.alameda181.unidadresidencialalameda181.utils.TopMenuOption
 import kotlinx.coroutines.launch
@@ -129,7 +129,7 @@ fun previewAppBar(){
     val pagerState = rememberPagerState {
         0
     }
-    UnidadResidencialAlameda181Theme {
+    co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme {
         HomeTopAppBar(
             pagerState = pagerState,
             scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(),

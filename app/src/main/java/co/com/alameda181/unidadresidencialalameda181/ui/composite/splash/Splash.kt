@@ -22,7 +22,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import co.com.alameda181.unidadresidencialalameda181.R
-import co.com.alameda181.unidadresidencialalameda181.ui.theme.UnidadResidencialAlameda181Theme
+import co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme
 import co.com.alameda181.unidadresidencialalameda181.utils.MAIN_MENU
 import kotlinx.coroutines.delay
 
@@ -71,7 +71,7 @@ fun AnimationSplash(scaleAnimation:Animatable<Float,AnimationVector1D>,navContro
 @Composable
 @Preview
 fun previewSplash() {
-    UnidadResidencialAlameda181Theme {
+    co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme {
         DesignSplash()
     }
 }

@@ -14,5 +14,7 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "UnidadResidencialAlameda181"
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
- 
+include(":aboutactivitymodule")
+include(":ui")

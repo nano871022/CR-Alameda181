@@ -17,7 +17,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import co.com.alameda181.unidadresidencialalameda181.R
-import co.com.alameda181.unidadresidencialalameda181.ui.theme.UnidadResidencialAlameda181Theme
+import co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
@@ -61,9 +61,9 @@ fun preview(){
         val pagerState = rememberPagerState {
             0
         }
-    UnidadResidencialAlameda181Theme{
-        HomePagerScreen(stringResource(id = R.string.home_info),pagerState = pagerState)
-    }
+        co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme {
+            HomePagerScreen(stringResource(id = R.string.home_info), pagerState = pagerState)
+        }
 }
 
 

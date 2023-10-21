@@ -38,7 +38,7 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.zIndex
 import androidx.core.text.HtmlCompat
 import co.com.alameda181.unidadresidencialalameda181.R
-import co.com.alameda181.unidadresidencialalameda181.ui.theme.UnidadResidencialAlameda181Theme
+import co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme
 import kotlinx.coroutines.delay
 
 @Composable
@@ -112,7 +112,7 @@ fun DialogMessage(onDismiss :()->Unit){
 @Preview(showBackground = true)
 fun previewAdministrationPayment(){
 
-    UnidadResidencialAlameda181Theme {
+    co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme {
         AdministrationPayment()
     }
 }

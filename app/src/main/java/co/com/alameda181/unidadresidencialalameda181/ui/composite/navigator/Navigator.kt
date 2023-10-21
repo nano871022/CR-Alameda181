@@ -1,6 +1,8 @@
 package co.com.alameda181.unidadresidencialalameda181.ui.composite.navigator
 
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,13 +14,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
+import androidx.core.view.ContentInfoCompat.Flags
+import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import co.com.alameda181.unidadresidencialalameda181.about.AboutActivity
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.Alameda181
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.HomeScreen
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.splash.SplashScreen
-import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.About
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.AdministrationPayment
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.GeneralInformation
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.LocalRepairs
@@ -52,7 +56,9 @@ fun Navigator(navController: NavHostController,modifier:Modifier,context:Context
 
         composable(DrawerRoutes.HOME.name) { HomeScreen(context = context) }
 
-        composable(MenuOptions.ABOUT.name){About()}
+        composable(MenuOptions.ABOUT.name){
+            co.com.alameda181.unidadresidencialalameda181.about.UI.About()
+        }
 
         composable(TopMenuOption.SCHEDULES.name){Schedule()}
 
