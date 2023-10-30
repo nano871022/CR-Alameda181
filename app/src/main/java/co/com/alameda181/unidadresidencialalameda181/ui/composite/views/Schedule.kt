@@ -40,6 +40,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import co.com.alameda181.unidadresidencialalameda181.R
 import co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme
+import co.com.japl.schedule.ui.schedule.ScheduleBoard
 
 @Composable
 fun Schedule (){
@@ -50,7 +51,7 @@ fun Schedule (){
             .fillMaxSize()
     ) {
 
-        scheduleBoard()
+        ScheduleBoard()
 
         Spacer(modifier = Modifier.padding(dimensionResource(id = R.dimen.spacer_between)))
 
@@ -158,153 +159,9 @@ fun contactNumber(){
 }
 
 @Composable
-fun scheduleBoard(){
-    Row(
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Icon(
-            painter = painterResource(id = R.drawable.baseline_calendar_month_24),
-            contentDescription = "timer"
-        )
-
-        Text(text = stringResource(id = R.string.schedule_administrator), fontSize = 20.sp)
-    }
-
-    Divider()
-
-    Spacer(modifier = Modifier.padding(dimensionResource(id = R.dimen.spacer_min_between)))
-
-    Card (modifier = Modifier
-        .fillMaxWidth()) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(
-                    start = dimensionResource(id = R.dimen.card_padding_left_right),
-                    end = dimensionResource(id = R.dimen.card_padding_left_right),
-                    top = dimensionResource(id = R.dimen.card_padding_top_bottom),
-                    bottom = dimensionResource(id = R.dimen.card_padding_top_bottom)
-                )
-        ) {
-            Column(
-                modifier = Modifier.padding(
-                    start = dimensionResource(id = R.dimen.padding_column_schedule),
-                    end = dimensionResource(id = R.dimen.padding_column_schedule)
-                ), verticalArrangement = Arrangement.SpaceBetween
-            ) {
-                Text(text = stringResource(id = R.string.time), fontSize = 12.sp)
-
-                listTimes()
-            }
-            Column(
-                modifier = Modifier.padding(
-                    start = dimensionResource(id = R.dimen.padding_column_schedule),
-                    end = dimensionResource(id = R.dimen.padding_column_schedule)
-                ), verticalArrangement = Arrangement.SpaceBetween
-            ) {
-                Text(
-                    text = stringResource(id = R.string.monday), fontSize = 12.sp
-                )
-
-                listTimes(R.array.schedule_monday)
-            }
-            Column(
-                modifier = Modifier.padding(
-                    start = dimensionResource(id = R.dimen.padding_column_schedule),
-                    end = dimensionResource(id = R.dimen.padding_column_schedule)
-                ), verticalArrangement = Arrangement.SpaceBetween
-            ) {
-                Text(
-                    text = stringResource(id = R.string.tuesday), fontSize = 12.sp
-                )
-
-                listTimes(R.array.schedule_tuesday)
-            }
-            Column(
-                modifier = Modifier.padding(
-                    start = dimensionResource(id = R.dimen.padding_column_schedule),
-                    end = dimensionResource(id = R.dimen.padding_column_schedule)
-                ), verticalArrangement = Arrangement.SpaceBetween
-            ) {
-                Text(
-                    text = stringResource(id = R.string.wednesday), fontSize = 12.sp
-                )
-
-                listTimes(R.array.schedule_wednesday)
-            }
-            Column(
-                modifier = Modifier.padding(
-                    start = dimensionResource(id = R.dimen.padding_column_schedule),
-                    end = dimensionResource(id = R.dimen.padding_column_schedule)
-                ), verticalArrangement = Arrangement.SpaceBetween
-            ) {
-                Text(
-                    text = stringResource(id = R.string.thursday), fontSize = 12.sp
-                )
-
-                listTimes(R.array.schedule_thursday)
-            }
-            Column(
-                modifier = Modifier.padding(
-                    start = dimensionResource(id = R.dimen.padding_column_schedule),
-                    end = dimensionResource(id = R.dimen.padding_column_schedule)
-                ), verticalArrangement = Arrangement.SpaceBetween
-            ) {
-                Text(
-                    text = stringResource(id = R.string.friday), fontSize = 12.sp
-                )
-
-                listTimes(R.array.schedule_friday)
-            }
-            Column(
-                modifier = Modifier.padding(
-                    start = dimensionResource(id = R.dimen.padding_column_schedule),
-                    end = dimensionResource(id = R.dimen.padding_column_schedule)
-                ), verticalArrangement = Arrangement.SpaceBetween
-            ) {
-                Text(
-                    text = stringResource(id = R.string.saturday), fontSize = 12.sp
-                )
-
-                listTimes(R.array.schedule_saturday)
-            }
-
-        }
-    }
-}
-
-@Composable
-fun listTimes(idScheduleday:Int){
-    val list = stringArrayResource(id = idScheduleday).asList()
-
-    for(i in 8..17) {
-        val color = if (list.contains(i.toString())) MaterialTheme.colorScheme.tertiary else Color.Transparent
-       Box(
-            modifier = Modifier
-                .background(color)
-                .padding(
-                    start = dimensionResource(id = R.dimen.padding_box_schedule_left_right),
-                    end = dimensionResource(id = R.dimen.padding_box_schedule_left_right),
-                    top = dimensionResource(id = R.dimen.padding_box_schedule_top_bottom),
-                    bottom = dimensionResource(id = R.dimen.padding_box_schedule_top_bottom)
-                )
-        ) {
-
-        }
-    }
-}
-
-@Composable
-fun listTimes(){
-    val list = stringArrayResource(id = R.array.schedule_time).forEach {
-        Text(text = it, fontSize = 12.sp)
-    }
-}
-
-@Composable
 @Preview(showBackground = true)
 fun previewSchedule(){
-    co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme {
+    UnidadResidencialAlameda181Theme {
         Schedule()
     }
 }

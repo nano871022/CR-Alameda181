@@ -61,10 +61,9 @@ fun HomeTopAppBar(
     val resource = context.resources
     TopAppBar(title = {
                 Text(buildAnnotatedString {
-                    withStyle(style=SpanStyle(color=Color.White)){append(stringResource(id = R.string.name_first))}
-                    withStyle(style = SpanStyle(color=Color.Yellow)){append(stringResource(id = R.string.name_second))}
+                    withStyle(style=SpanStyle(color=MaterialTheme.colorScheme.primary)){append(stringResource(id = R.string.name_first))}
+                    withStyle(style = SpanStyle(color=MaterialTheme.colorScheme.secondary)){append(stringResource(id = R.string.name_second))}
                 } ,modifier = Modifier
-                    .background(MaterialTheme.colorScheme.secondaryContainer)
                     .padding(5.dp))
                 },
                 modifier = modifier.statusBarsPadding(),
@@ -129,7 +128,7 @@ fun previewAppBar(){
     val pagerState = rememberPagerState {
         0
     }
-    co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme {
+    UnidadResidencialAlameda181Theme {
         HomeTopAppBar(
             pagerState = pagerState,
             scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(),

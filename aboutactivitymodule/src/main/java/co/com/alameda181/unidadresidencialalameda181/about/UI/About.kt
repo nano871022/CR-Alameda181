@@ -24,6 +24,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -47,7 +48,9 @@ fun About(){
                 Row() {
                         Image(
                                 painter = painterResource(id = R.drawable.img),
-                                contentDescription = stringResource(id = R.string.name)
+                                contentDescription = stringResource(id = R.string.name),
+                                contentScale = ContentScale.FillBounds,
+                                modifier = Modifier.width(150.dp).height(130.dp).padding(top=5.dp)
                         )
 
                         Text(stringResource(id = R.string.description),modifier=Modifier.padding(start=10.dp))
@@ -82,6 +85,8 @@ fun AppBrothers(){
 fun CardTorres(){
         val context = LocalContext.current.applicationContext
         val url = stringResource(id = R.string.url_app_urtss)
+        val name = stringResource(id = R.string.urtss)
+        val nameFormat = remember { HtmlCompat.fromHtml(name, HtmlCompat.FROM_HTML_MODE_COMPACT)}
         Card(
                 onClick = {
                         val link = url
@@ -91,19 +96,27 @@ fun CardTorres(){
                         context.startActivity(intent)
                 },
                 modifier = Modifier
-                        .width(200.dp)
+                        .width(100.dp)
                         .padding(5.dp)
         ) {
 
                 Image(painter= painterResource(id = R.drawable.urtorressansebastian),contentDescription = stringResource(
                         id = R.string.urtss
-                ))
+                ),
+                        Modifier
+                                .align(
+                                        alignment = Alignment.CenterHorizontally
+                                ))
                 Divider(modifier=Modifier.padding(top=10.dp, bottom=10.dp))
-                Text(text = stringResource(id = R.string.urtss),modifier= Modifier
-                        .align(
-                                alignment = Alignment.CenterHorizontally
-                        )
-                        .padding(5.dp))
+
+                AndroidView(
+                        factory= {TextView(it)},
+                        update = { it.text = nameFormat },
+                        modifier = Modifier
+                                .align(
+                                        alignment = Alignment.CenterHorizontally
+                                )
+                                .padding(5.dp))
         }
 }
 
@@ -111,7 +124,7 @@ fun CardTorres(){
 @Composable
 fun CardFinanzas(){
         val context = LocalContext.current.applicationContext
-        val url = stringResource(id = R.string.url_app_urtss)
+        val url = stringResource(id = R.string.url_app_finance)
         Card( onClick = {
                 val link = url
                 val uri = Uri.parse(link)
@@ -119,12 +132,13 @@ fun CardFinanzas(){
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 context.startActivity(intent)
         },modifier = Modifier
-                .width(200.dp)
+                .width(105.dp)
                 .padding(5.dp)) {
 
-                Image(painter= painterResource(id = R.drawable.finanzaspersonales),contentDescription = stringResource(
+                Image(painter= painterResource(id = R.drawable.finanzaspersonales),
+                        contentDescription = stringResource(
                         id = R.string.fiances
-                ))
+                ), modifier = Modifier.align(alignment = Alignment.CenterHorizontally))
 
                 Divider(modifier=Modifier.padding(top=10.dp, bottom=10.dp))
 
@@ -147,15 +161,23 @@ fun CardOwn(){
         val html = remember { HtmlCompat.fromHtml(txt, HtmlCompat.FROM_HTML_MODE_COMPACT)}
         Card(modifier=Modifier.padding(10.dp)){
 
-                AndroidView(
-                        factory = {
-                                TextView(it).apply {
-                                        movementMethod = LinkMovementMethod.getInstance()
-                                }
-                        },
-                        update = { it.text = html },
-                        modifier= Modifier.padding(20.dp)
-                )
+                Row {
+
+                        Image(painter= painterResource(id = R.drawable.person_hack),
+                                contentDescription = stringResource(
+                                        id = R.string.fiances
+                                ))
+
+                        AndroidView(
+                                factory = {
+                                        TextView(it).apply {
+                                                movementMethod = LinkMovementMethod.getInstance()
+                                        }
+                                },
+                                update = { it.text = html },
+                                modifier = Modifier.padding(20.dp)
+                        )
+                }
 
                 Row(modifier=Modifier.padding(10.dp)) {
 
@@ -167,7 +189,7 @@ fun CardOwn(){
                                 context.startActivity(intent)
                         }, modifier = Modifier.width(100.dp).height(100.dp)) {
                                 Image(
-                                        painter = painterResource(id = R.drawable.guithub),
+                                        painter = painterResource(id = R.drawable.github_logo),
                                         contentDescription = stringResource(
                                                 id = R.string.own_detail
                                         )
@@ -182,7 +204,7 @@ fun CardOwn(){
                                 context.startActivity(intent)
                         }, modifier = Modifier.width(100.dp).height(100.dp).padding(start=10.dp)) {
                                 Image(
-                                        painter = painterResource(id = R.drawable.linkedin),
+                                        painter = painterResource(id = R.drawable.linkedin2),
                                         contentDescription = stringResource(
                                                 id = R.string.own_detail
                                         )

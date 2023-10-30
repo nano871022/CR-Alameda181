@@ -78,9 +78,9 @@ fun Location (){
 }
 
 @Composable
-@Preview(showBackground = true)
+@Preview(showSystemUi = true)
 fun previewLocation(){
-    co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme {
+    UnidadResidencialAlameda181Theme {
         Location()
     }
 }

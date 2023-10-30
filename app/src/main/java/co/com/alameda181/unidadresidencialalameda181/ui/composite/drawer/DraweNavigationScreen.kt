@@ -4,9 +4,11 @@ import android.content.res.Resources
 import android.view.ContextMenu
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalDrawerSheet
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
@@ -30,7 +32,8 @@ import kotlinx.coroutines.launch
 @Composable
 fun drawerContent(scope:CoroutineScope,state:DrawerState,navController:NavHostController){
     ModalDrawerSheet (
-        drawerContainerColor = Color.White
+        drawerContainerColor = MaterialTheme.colorScheme.background,
+        modifier = Modifier.width(280.dp),
     ){
         val resources = LocalContext.current.resources
         DrawerHeader()
@@ -59,7 +62,7 @@ fun getMenus(resources:Resources):List<MenuItem>{
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview
+@Preview(showSystemUi = true)
 @Composable
 fun preview(){
     drawerContent(scope = rememberCoroutineScope(),state = rememberDrawerState(initialValue = DrawerValue.Closed),navController = rememberNavController())

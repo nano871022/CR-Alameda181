@@ -27,7 +27,6 @@ fun PaymentInformation() {
     val context = LocalContext.current.applicationContext
     val resource = context.resources
     val html = remember {HtmlCompat.fromHtml(resource.getString(R.string.payment_info),HtmlCompat.FROM_HTML_MODE_COMPACT)}
-
     Column(
          modifier = Modifier
              .fillMaxSize()
