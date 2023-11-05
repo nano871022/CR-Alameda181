@@ -8,7 +8,7 @@ enum class DrawerRoutes constructor(val title:Int,val icon:Int){
   ,GENERAL_INFORMATION(R.string.menu_general_inforamtion,R.drawable.baseline_general_24)
   ,PAYMENT_INFORMATION(R.string.menu_payment_information,R.drawable.baseline_monetization_on_24)
   ,MOVEMENT_INFORMATION(R.string.menu_movement_information,R.drawable.baseline_moving_24)
-  ,RENTAL_INFORMATION(R.string.menu_renting_information,R.drawable.baseline_renting_24)
+  //,RENTAL_INFORMATION(R.string.menu_renting_information,R.drawable.baseline_renting_24)
   ,LOCAL_REPAIRS(R.string.menu_local_repairs,R.drawable.baseline_repair_24)
   ,REGULATION(R.string.menu_regulation,R.drawable.baseline_rule_24)
 }

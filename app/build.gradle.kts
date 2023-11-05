@@ -13,8 +13,8 @@ android {
         applicationId = "co.com.alameda181.unidadresidencialalameda181"
         minSdk = 26
         targetSdk = 33
-        versionCode = 1_0_2
-        versionName = "V1.0.2 Schedule Hours Added"
+        versionCode = 1_0_3
+        versionName = "V1.0.3 Carouse in main page"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {

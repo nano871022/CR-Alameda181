@@ -3,6 +3,7 @@ package co.com.alameda181.unidadresidencialalameda181.ui.composite.navigator
 import android.content.Context
 import android.content.Intent
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -50,6 +51,7 @@ fun NavigatorSplash(navController: NavHostController,modifier:Modifier,context:C
     }
 }
 
+@RequiresApi(34)
 @Composable
 fun Navigator(navController: NavHostController,modifier:Modifier,context:Context){
     NavHost(navController = navController, startDestination = DrawerRoutes.HOME.name,modifier = modifier) {
@@ -76,6 +78,6 @@ fun Navigator(navController: NavHostController,modifier:Modifier,context:Context
 
         composable(DrawerRoutes.LOCAL_REPAIRS.name){ LocalRepairs() }
 
-        composable(DrawerRoutes.RENTAL_INFORMATION.name){ RentalInformation() }
+        //composable(DrawerRoutes.RENTAL_INFORMATION.name){ RentalInformation() }
     }
 }
