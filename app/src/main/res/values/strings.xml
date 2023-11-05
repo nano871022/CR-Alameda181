@@ -95,7 +95,7 @@
         <string name="menu_general_inforamtion">Información Generál</string>
         <string name="menu_payment_information">Información Pagos</string>
         <string name="menu_movement_information">Información Mudanzas</string>
-        <string name="menu_renting_information">Información Alquiler</string>
+        <!--<string name="menu_renting_information">Información Alquiler</string>-->
         <string name="menu_local_repairs">Reparaciones Locativas</string>
         <string name="menu_regulation">Reglamento</string>
         <string name="number_contact">601 573 08 96</string>
