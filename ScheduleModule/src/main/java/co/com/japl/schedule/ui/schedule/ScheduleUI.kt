@@ -27,6 +27,7 @@ import co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme
 import co.com.japl.schedule.R
 import java.time.DayOfWeek
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.LocalTime
 import java.time.temporal.TemporalAdjusters
 
@@ -47,7 +48,6 @@ fun ScheduleBoard(){
                 text = resource.getString(R.string.title_header),
                 modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )
-
             LazyVerticalGrid(
                 columns = GridCells.Fixed(8),
                 contentPadding = PaddingValues(5.dp),
@@ -60,13 +60,26 @@ fun ScheduleBoard(){
                         } else if (index > 7 && value.first != SELECTED) {
                             HoursSchedule(hour = value.first)
                         } else if (index > 7 && value.first == SELECTED) {
-                            BoxSelected(value.second.toString())
+                            BoxSelected(day = getDayByIndex(index),hour = value.second)
                         } else {
                             TitleSchedule(name = value.first, day = day)
                         }
                     }
                 })
         }
+    }
+}
+
+private fun getDayByIndex(index:Int):Int{
+    return when( index  % 8) {
+        1 -> DayOfWeek.SUNDAY.value
+        2 -> DayOfWeek.MONDAY.value
+        3 -> DayOfWeek.TUESDAY.value
+        4 -> DayOfWeek.WEDNESDAY.value
+        5 -> DayOfWeek.THURSDAY.value
+        6 -> DayOfWeek.FRIDAY.value
+        7 -> DayOfWeek.SATURDAY.value
+        else -> DayOfWeek.SUNDAY.value
     }
 }
 
@@ -122,7 +135,7 @@ private fun getDaysOfWeek(resource:Resources):List<Pair<String,Int>>{
 }
 
 private fun getDaysOfWeek():List<Int>{
-    val currentDate = LocalDate.now()
+    val currentDate = getCurrentDate()
     val startOfWeek = currentDate.with(TemporalAdjusters.previousOrSame(DayOfWeek.SUNDAY))
     val endOfWeek = currentDate.with(TemporalAdjusters.nextOrSame(DayOfWeek.SATURDAY))
 
@@ -139,12 +152,8 @@ private fun getDaysOfWeek():List<Int>{
 
 @Composable
 private fun HoursSchedule(hour:String){
-    val time = LocalTime.now().hour
-    val hourNum = if(hour.contains("am")){
-        hour.replace("am","").toInt()
-    }else{
-        hour.replace("pm","").toInt() + 12
-    }
+    val time = getCurrentHour()
+    val hourNum = getHourNumber(hour)
     val color = if(time == hourNum){
         MaterialTheme.colorScheme.onPrimaryContainer
     }else{
@@ -159,9 +168,18 @@ private fun HoursSchedule(hour:String){
     }
 }
 
+private fun getHourNumber(hour:String):Int{
+    return if(hour.contains("am")){
+        hour.replace("am","").toInt()
+    }else{
+        hour.replace("pm","").toInt() + 12
+    }
+
+}
+
 @Composable
 private fun TitleSchedule(name:String,day:Int){
-    val date = LocalDate.now()
+    val date = getCurrentDate()
     val color = if(date.dayOfMonth == day){
         MaterialTheme.colorScheme.onPrimaryContainer
     }else{
@@ -189,17 +207,30 @@ private fun BoxEmpty(){
 }
 
 @Composable
-private fun BoxSelected(text:String){
+private fun BoxSelected(day :Int,hour:Int){
+    val currentDay = getCurrentDate().dayOfWeek.value
+    val time = getCurrentHour()
+    val color = if(time == hour && currentDay==day){
+        MaterialTheme.colorScheme.onPrimaryContainer
+    }else{
+        MaterialTheme.colorScheme.secondary
+    }
     Box(
         modifier = Modifier
             .padding(start = 2.dp)
-            .background(MaterialTheme.colorScheme.primaryContainer)
+            .background(color)
             .height(30.dp)
     ){
         
     }
 }
 
+private fun getCurrentDate():LocalDateTime{
+    return LocalDateTime.now()
+}
+private fun getCurrentHour():Int{
+    return getCurrentDate().hour
+}
 @Preview(showSystemUi = true)
 @Composable
 fun preview(){
