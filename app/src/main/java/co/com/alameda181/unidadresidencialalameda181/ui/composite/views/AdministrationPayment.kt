@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -41,6 +42,7 @@ import co.com.alameda181.unidadresidencialalameda181.R
 import co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme
 import kotlinx.coroutines.delay
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AdministrationPayment(){
     val context = LocalContext.current.applicationContext
@@ -53,9 +55,6 @@ fun AdministrationPayment(){
     , modifier = Modifier
             .fillMaxSize()
             .padding(10.dp)) {
-
-
-        Image(painter = painterResource(id = R.drawable.pse), contentDescription = "PSE")
 
         AndroidView(
             factory = { context ->
@@ -75,7 +74,8 @@ fun AdministrationPayment(){
             }
         }
 
-        Button(onClick = {
+        Card(modifier=Modifier.padding(10.dp)
+            ,onClick = {
             openDialog.value = true
             Handler(Looper.getMainLooper()).postDelayed( {
                 val link = resource.getString(R.string.payment_link)
@@ -86,7 +86,10 @@ fun AdministrationPayment(){
                 true
             },3000)
         }){
-            Text(text = stringResource(id = R.string.go_pse))
+            Column(modifier=Modifier.padding(10.dp), horizontalAlignment = Alignment.CenterHorizontally){
+                Image(painter = painterResource(id = R.drawable.pse), contentDescription = "PSE")
+                Text(text = stringResource(id = R.string.go_pse))
+            }
         }
     }
 }

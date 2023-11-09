@@ -70,19 +70,23 @@
         Estos son los medios de comunuicación con el conjunto Residencial<b/>
         <ol>
             <li>
-                Portería <b>601 573 08 96 - 321 292 42 42 - 316 525 26 50 </b><br/>
+                Portería <br/><b>601 573 08 96 - 321 292 42 42 - 316 525 26 50 </b><br/>
                 De estos números lo estarán llamando a anunciar sus visitas y domicilios
+                <br/>
             </li>
             <li>
-                Whatsapp Administración <b>302 363 42 93</b> <br/>
+                Whatsapp Administración<br/> <b>302 363 42 93</b> <br/>
                 (tenga en presente los horarios de atención)
+                <br/>
             </li>
             <li>
-                Correo Electrónico <b>admonalameda181@gmail.com</b><br/>
+                Correo Electrónico <br/><b>admonalameda181@gmail.com</b><br/>
                 Toda solicitud o autorizacion debe ser notificados por correo a administración Mínimo con 3 días de anticipación
+                <br/>
             </li>
             <li>
-                <pagina del conjunto <b><link url="www.alameda181.com">www.alameda181.com</link></b>
+                Página del conjunto <br/><b><link url="www.alameda181.com">www.alameda181.com</link></b>
+                <br/>
             </li>
         </ol>
         <br/>
@@ -184,60 +188,4 @@
     <string name="regulation_title">Manual de Convivencia</string>
 
     <string name="state">Bogotá - Cundinamarca</string>
-
-    <string name="time">Horario</string>
-    <string name="monday">Lunes</string>
-    <string name="tuesday">Martes</string>
-    <string name="wednesday">Miercoles</string>
-    <string name="thursday">Jueves</string>
-    <string name="friday">Viernes</string>
-    <string name="saturday">Sabado</string>
-
-    <string-array name="schedule_monday">
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-        <item>11</item>
-    </string-array>
-    <string-array name="schedule_tuesday">
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-        <item>11</item>
-    </string-array>
-    <string-array name="schedule_wednesday">
-        <item>14</item>
-        <item>15</item>
-        <item>16</item>
-        <item>17</item>
-    </string-array>
-    <string-array name="schedule_thursday">
-        <item>14</item>
-        <item>15</item>
-        <item>16</item>
-        <item>17</item>
-    </string-array>
-    <string-array name="schedule_friday">
-        <item>9</item>
-        <item>10</item>
-        <item>11</item>
-        <item>12</item>
-    </string-array>
-    <string-array name="schedule_saturday">
-
-    </string-array>
-
-    <string-array name="schedule_time">
-        <item>8 am</item>
-        <item>9 am</item>
-        <item>10 am</item>
-        <item>11 am</item>
-        <item>12 pm</item>
-        <item>1 pm</item>
-        <item>2 pm</item>
-        <item>3 pm</item>
-        <item>4 pm</item>
-        <item>5 pm</item>
-    </string-array>
-
 </resources>
