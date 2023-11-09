@@ -38,8 +38,17 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme
 import co.com.alameda181.unidadresidencialalameda181.R
+import co.com.japl.interfaces.dtos.CarouselDTO
+import co.com.japl.services.implement.CarouselImpl
 import kotlinx.coroutines.delay
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import java.net.HttpURLConnection
+import java.net.URL
+import java.util.Collections
+import java.util.stream.Collectors
 
 @RequiresApi(34)
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
@@ -52,7 +61,7 @@ fun HomeScreen(
     val pagerState = rememberPagerState {
         0
     }
-
+    //getImagesFromUrl(context)
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -82,6 +91,7 @@ fun HomeScreen(
 @Composable
 fun Carousel(context:Context){
     val list = getImagesName(context)
+
     val pagerState = rememberPagerState(pageCount = {list.size})
 
     val isDragged by pagerState.interactionSource.collectIsDraggedAsState()
@@ -151,6 +161,11 @@ fun getImagesName(context:Context):List<Pair<Int,String>> {
     return R.drawable::class.java.fields.filter { it.name.startsWith("carousel") }
         .map{Pair(resources.getIdentifier(it.name,"drawable",context.packageName),it.name)}
         .filter { it.first != 0 }
+        .sortedBy { it.second }
+}
+
+fun getImagesFromUrl(context: Context):List<CarouselDTO>{
+    return CarouselImpl(context).getCarouselHome()
 }
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
@@ -161,7 +176,7 @@ fun preview(){
             0
         }
     val context:Context = LocalContext.current
-        co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme {
+    UnidadResidencialAlameda181Theme {
             HomePagerScreen(context, pagerState = pagerState)
         }
 }
