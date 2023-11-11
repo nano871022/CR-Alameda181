@@ -4,7 +4,6 @@ import android.content.Intent
 import android.net.Uri
 import android.text.method.LinkMovementMethod
 import android.widget.TextView
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -21,7 +20,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.text.HtmlCompat
 import co.com.alameda181.unidadresidencialalameda181.R
-import co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme
 
 @Composable
 fun Regulation(){
@@ -60,7 +58,7 @@ fun Regulation(){
 @Composable
 @Preview(showBackground = true)
 fun previewRegulation(){
-    co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme {
+    co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI {
         Regulation()
     }
 }

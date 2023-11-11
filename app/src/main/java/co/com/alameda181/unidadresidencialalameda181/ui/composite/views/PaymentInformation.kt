@@ -1,26 +1,21 @@
 package co.com.alameda181.unidadresidencialalameda181.ui.composite.views
 
-import android.text.Layout.Alignment
 import android.text.method.LinkMovementMethod
 import android.widget.TextView
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.text.HtmlCompat
 import co.com.alameda181.unidadresidencialalameda181.R
-import co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme
 
 @Composable
 fun PaymentInformation() {
@@ -47,7 +42,7 @@ fun PaymentInformation() {
 @Composable
 @Preview(showBackground = true)
 fun previewPaymentInformation() {
-    co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme {
+    co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI {
         PaymentInformation()
     }
 }

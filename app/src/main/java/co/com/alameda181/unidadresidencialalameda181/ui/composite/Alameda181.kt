@@ -1,6 +1,7 @@
 package co.com.alameda181.unidadresidencialalameda181.ui.composite
 
 import android.content.Context
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.PagerState
@@ -17,10 +18,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
+import co.com.alameda181.unidadresidencialalameda181.ui.composite.bottomBar.BottomBar
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.drawer.drawerContent
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.navigator.Navigator
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.topbar.HomeTopAppBar
 
+@RequiresApi(34)
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable fun Alameda181 (context: Context){
     val state = rememberDrawerState(DrawerValue.Closed)
@@ -42,7 +45,10 @@ import co.com.alameda181.unidadresidencialalameda181.ui.composite.topbar.HomeTop
         Scaffold(
             topBar = {
                 HomeTopAppBar(pagerState = pagerState, scrollBehavior = scrollBehavior,drawerState = state, navController = navController)
-            }, modifier = Modifier
+            }, modifier = Modifier,
+            bottomBar = {
+                BottomBar(navigation = navController)
+            }
         ) {
             Navigator(navController = navController, modifier = Modifier.padding(it), context = context)
         }
@@ -50,6 +56,7 @@ import co.com.alameda181.unidadresidencialalameda181.ui.composite.topbar.HomeTop
 }
 
 
+@RequiresApi(34)
 @Preview
 @Composable
 fun preview(){

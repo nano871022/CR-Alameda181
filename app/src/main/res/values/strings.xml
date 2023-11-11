@@ -103,6 +103,7 @@
         <string name="menu_local_repairs">Reparaciones Locativas</string>
         <string name="menu_regulation">Reglamento</string>
         <string name="number_contact">601 573 08 96</string>
+        <string name="whatsapp_number">+573023634293</string>
         <string name="email_contact">admonalameda181@gmail.com</string>
 
 
@@ -186,6 +187,7 @@
     <string name="regulation_link">https://www.alameda181.com/images/PDF/Manual_Convivencia_CR_Alameda_181_PH-2021_2.pdf</string>
     <string name="regulation_info">Descarga PDF</string>
     <string name="regulation_title">Manual de Convivencia</string>
+    <string name="web_site_link">https://www.alameda181.com/</string>
 
     <string name="state">Bogotá - Cundinamarca</string>
 </resources>

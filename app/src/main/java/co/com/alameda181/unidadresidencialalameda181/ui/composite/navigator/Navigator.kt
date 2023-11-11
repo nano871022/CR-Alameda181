@@ -20,6 +20,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import co.com.alameda181.unidadresidencialalameda181.BuildConfig
 import co.com.alameda181.unidadresidencialalameda181.about.AboutActivity
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.Alameda181
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.HomeScreen
@@ -56,10 +57,10 @@ fun NavigatorSplash(navController: NavHostController,modifier:Modifier,context:C
 fun Navigator(navController: NavHostController,modifier:Modifier,context:Context){
     NavHost(navController = navController, startDestination = DrawerRoutes.HOME.name,modifier = modifier) {
 
-        composable(DrawerRoutes.HOME.name) { HomeScreen(context = context) }
+        composable(DrawerRoutes.HOME.name) { HomeScreen() }
 
         composable(MenuOptions.ABOUT.name){
-            co.com.alameda181.unidadresidencialalameda181.about.UI.About()
+            co.com.alameda181.unidadresidencialalameda181.about.UI.About(BuildConfig.VERSION_NAME)
         }
 
         composable(TopMenuOption.SCHEDULES.name){Schedule()}

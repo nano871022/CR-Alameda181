@@ -1,7 +1,6 @@
 package co.com.japl.schedule.ui.schedule
 
 import android.content.res.Resources
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -23,12 +22,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme
+import co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI
 import co.com.japl.schedule.R
 import java.time.DayOfWeek
-import java.time.LocalDate
 import java.time.LocalDateTime
-import java.time.LocalTime
 import java.time.temporal.TemporalAdjusters
 
 private val SELECTED = "SELECTED"
@@ -234,7 +231,7 @@ private fun getCurrentHour():Int{
 @Preview(showSystemUi = true)
 @Composable
 fun preview(){
-    UnidadResidencialAlameda181Theme {
+    MaterialThemeComposeUI {
         ScheduleBoard()
     }
 }

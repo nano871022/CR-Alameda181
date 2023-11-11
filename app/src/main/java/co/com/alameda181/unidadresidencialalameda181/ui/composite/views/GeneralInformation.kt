@@ -18,7 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.text.HtmlCompat
-import co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme
+import co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI
 import co.com.alameda181.unidadresidencialalameda181.R
 
 @Composable
@@ -60,7 +60,7 @@ fun GeneralInformation(){
 @Composable
 @Preview(showBackground = true)
 fun previewGeneralInformation(){
-    UnidadResidencialAlameda181Theme {
+    MaterialThemeComposeUI {
         GeneralInformation()
     }
 }

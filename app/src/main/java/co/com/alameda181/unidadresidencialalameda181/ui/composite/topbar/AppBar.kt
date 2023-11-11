@@ -1,16 +1,10 @@
 package co.com.alameda181.unidadresidencialalameda181.ui.composite.topbar
 
-import android.content.Intent
-import android.net.Uri
-import android.widget.Toast
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -22,7 +16,6 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -36,13 +29,11 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.core.content.ContextCompat
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import co.com.alameda181.unidadresidencialalameda181.R
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.menuoptions.MenuOptions
-import co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme
-import co.com.alameda181.unidadresidencialalameda181.utils.MenuOptions
+import co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI
 import co.com.alameda181.unidadresidencialalameda181.utils.TopMenuOption
 import kotlinx.coroutines.launch
 
@@ -128,7 +119,7 @@ fun previewAppBar(){
     val pagerState = rememberPagerState {
         0
     }
-    UnidadResidencialAlameda181Theme {
+    MaterialThemeComposeUI {
         HomeTopAppBar(
             pagerState = pagerState,
             scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(),

@@ -1,8 +1,6 @@
 package co.com.alameda181.unidadresidencialalameda181.ui.composite.views
 
-import android.icu.lang.UCharacter.LineBreak
 import android.text.method.LinkMovementMethod
-import android.text.style.LineHeightSpan
 import android.widget.TextView
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,7 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.text.HtmlCompat
-import co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme
+import co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI
 import co.com.alameda181.unidadresidencialalameda181.R
 
 @Composable
@@ -137,7 +135,7 @@ fun ScheduleMovement(){
 @Composable
 @Preview(showBackground = true)
 fun previewMovementInformation(){
-    UnidadResidencialAlameda181Theme {
+    MaterialThemeComposeUI {
         MovementInformation()
     }
 }

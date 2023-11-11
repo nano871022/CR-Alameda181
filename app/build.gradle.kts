@@ -3,6 +3,8 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
+
+
 }
 
 android {
@@ -13,8 +15,8 @@ android {
         applicationId = "co.com.alameda181.unidadresidencialalameda181"
         minSdk = 26
         targetSdk = 33
-        versionCode = 1_0_3
-        versionName = "V1.0.3 Carouse in main page"
+        versionCode = 1_0_5
+        versionName = "V1.0.5 Se agrego barra inferior"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -67,9 +69,11 @@ dependencies {
     implementation(project(":ServicesModule"))
 
     implementation("com.google.android.play:integrity:1.2.0")
+    implementation("io.coil-kt:coil-compose:2.5.0")
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
     implementation("androidx.activity:activity-compose:1.8.0")
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
@@ -81,7 +85,7 @@ dependencies {
     implementation("com.google.maps.android:maps-compose:2.11.4")
     implementation("com.google.android.gms:play-services-maps:18.2.0")
 
-    implementation("com.squareup.okhttp3:okhttp:4.9.2")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
 
     implementation("com.google.dagger:hilt-android:2.48")
     kapt("com.google.dagger:hilt-android-compiler:2.44")

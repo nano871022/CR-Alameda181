@@ -12,12 +12,10 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,11 +30,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.text.HtmlCompat
-import co.com.alameda181.ui.theme.theme.UnidadResidencialAlameda181Theme
+import co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI
 import co.com.alameda181.unidadresidencialalameda181.about.R
 
 @Composable
-fun About(){
+fun About(versionDetail:String){
         Column (
                 verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.Start
@@ -56,6 +54,8 @@ fun About(){
                         Text(stringResource(id = R.string.description),modifier=Modifier.padding(start=10.dp))
 
                 }
+
+                Text(text=versionDetail,modifier = Modifier.padding(top = 20.dp, start=10.dp))
 
                 Text(stringResource(id = R.string.copy_right), modifier = Modifier
                         .align(Alignment.End)
@@ -217,8 +217,8 @@ fun CardOwn(){
 @Preview(showBackground = true)
 @Composable
 fun preview(){
-        UnidadResidencialAlameda181Theme {
-                About()
+        MaterialThemeComposeUI {
+                About(versionDetail="V1.0.0 Primera version de la app")
         }
 }
 
