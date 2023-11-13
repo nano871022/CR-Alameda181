@@ -62,7 +62,6 @@ private fun Dialog(name:String,openDialog: MutableState<Boolean>,imageSrcInt:Int
     val offset = remember { mutableStateOf(Offset(0f,0f)) }
     var placeholder: MemoryCache.Key? = null
     Card(modifier = Modifier
-        .blur(radius=10.dp)
         .padding(10.dp)
         .fillMaxSize()
         , colors = CardDefaults.cardColors(containerColor = Color.Black, contentColor = Color.White),
