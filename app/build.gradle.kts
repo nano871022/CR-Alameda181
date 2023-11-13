@@ -15,15 +15,13 @@ android {
         applicationId = "co.com.alameda181.unidadresidencialalameda181"
         minSdk = 26
         targetSdk = 33
-        versionCode = 1_0_5
-        versionName = "V1.0.5 Se agrego barra inferior"
+        versionCode = 1_0_6
+        versionName = "V1.0.6 Se agrego conexcion a google drive para descargar imagenes desde esa carpeta."
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
-
-        buildConfigField("String", "GOOGLE_APPLICATION_CREDENTIALS", "\"credentials.json\"")
     }
 
     buildTypes {

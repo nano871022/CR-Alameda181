@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -29,11 +30,13 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import co.com.alameda181.unidadresidencialalameda181.R
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.menuoptions.MenuOptions
 import co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI
+import co.com.alameda181.unidadresidencialalameda181.utils.DrawerRoutes
 import co.com.alameda181.unidadresidencialalameda181.utils.TopMenuOption
 import kotlinx.coroutines.launch
 
@@ -51,11 +54,15 @@ fun HomeTopAppBar(
     val coroutineScope = rememberCoroutineScope()
     val resource = context.resources
     TopAppBar(title = {
-                Text(buildAnnotatedString {
+              ClickableText(text = buildAnnotatedString {
                     withStyle(style=SpanStyle(color=MaterialTheme.colorScheme.primary)){append(stringResource(id = R.string.name_first))}
                     withStyle(style = SpanStyle(color=MaterialTheme.colorScheme.secondary)){append(stringResource(id = R.string.name_second))}
                 } ,modifier = Modifier
-                    .padding(5.dp))
+                    .padding(5.dp)
+                  ,style= MaterialTheme.typography.titleLarge
+                ,onClick = {
+                    NavTo.nav(navController, DrawerRoutes.HOME.name)
+                })
                 },
                 modifier = modifier.statusBarsPadding(),
                 scrollBehavior = scrollBehavior,

@@ -34,6 +34,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.painter.ColorPainter
@@ -127,22 +128,28 @@ fun DotIndicator(pageCount: Int, pagerState: PagerState, modifier: Modifier) {
 fun CarouselItem(drawable: Int,drawableName: String) {
     val rotationState = remember { mutableFloatStateOf(1f) }
     val scale = remember { mutableFloatStateOf(1f) }
+    val offset = remember { mutableStateOf(Offset(0f,0f)) }
     Card(
         modifier = Modifier.padding(10.dp)
             .pointerInput (Unit){
                 detectTransformGestures{ centroId,pan,zoom,rotation ->
                     scale.value *= zoom
-                    rotationState.value += rotation
-
+                    rotationState.floatValue += rotation
+                    offset.value = Offset(
+                        offset.value.x + (pan.x / density * scale.floatValue),
+                        offset.value.y + (pan.y / density * scale.floatValue)
+                    )
                 }
             }) {
         Image(
             painter = painterResource(id = drawable),
             contentDescription = drawableName,
             modifier = Modifier.graphicsLayer {
-                scaleX = maxOf(.5f, maxOf(1f,scale.value))
-                scaleY = maxOf(.5f, maxOf(1f,scale.value))
+                scaleX = maxOf(.5f, maxOf(1f,scale.floatValue))
+                scaleY = maxOf(.5f, maxOf(1f,scale.floatValue))
                 rotationZ = rotationState.value
+                translationX = offset.value.x
+                translationY = offset.value.y
             }
 
         )

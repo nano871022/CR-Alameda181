@@ -12,6 +12,15 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+        buildConfigField("String", "CAROUSEL_HOME_DRIVE", project.findProperty("CAROUSEL_HOME_DRIVE")?.toString() ?:"false")
+        buildConfigField("String", "CAROUSEL_HOME_JSON", project.findProperty("CAROUSEL_HOME_JSON")?.toString() ?:"false")
+        buildConfigField("String", "CAROUSEL_HOME_LOCAL", project.findProperty("CAROUSEL_HOME_LOCAL")?.toString() ?:"false")
+
+    }
+
+    buildFeatures{
+        viewBinding
+        buildConfig = true
     }
 
     buildTypes {
@@ -21,18 +30,25 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-        }
+         }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+
+    packagingOptions {
+        resources.excludes.add("META-INF/DEPENDENCIES")
+    }
+
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
 }
 
 dependencies {
+
+    implementation(project(":connect-gdrive"))
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

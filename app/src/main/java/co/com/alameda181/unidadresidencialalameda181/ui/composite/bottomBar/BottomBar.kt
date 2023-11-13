@@ -19,6 +19,8 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI
 import co.com.alameda181.unidadresidencialalameda181.R
+import co.com.alameda181.unidadresidencialalameda181.ui.composite.topbar.NavTo
+import co.com.alameda181.unidadresidencialalameda181.utils.DrawerRoutes
 
 @Composable
 fun BottomBar(navigation:NavController){
@@ -30,6 +32,15 @@ fun BottomBar(navigation:NavController){
         backgroundColor = MaterialTheme.colorScheme.primaryContainer,
         contentColor = MaterialTheme.colorScheme.onPrimaryContainer
     ){
+
+        BottomNavigationItem(
+            selected = currentRoute == "",
+            label={ Text(text = "home") },
+            onClick = {  navigation.navigate(DrawerRoutes.HOME.name) },
+            icon = { Icon(painterResource(id = R.drawable.baseline_home_24),contentDescription = "") }
+
+        )
+
         BottomNavigationItem(
             selected = currentRoute == "",
             label={ Text(text = "call") },
