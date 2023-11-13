@@ -5,7 +5,6 @@ import androidx.annotation.RequiresApi
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.interaction.collectIsDraggedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -24,9 +23,9 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -34,17 +33,15 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.painter.ColorPainter
-import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI
+import co.com.alameda181.ui.theme.theme.common.ImageView
 import co.com.alameda181.unidadresidencialalameda181.model.HomeScreen.HomeScreenModel
 import coil.compose.AsyncImage
 import coil.memory.MemoryCache
@@ -61,6 +58,12 @@ fun HomeScreen(
     val homeScreenState by homeScreenModel.uiState.collectAsState()
     val pagerState = rememberPagerState(pageCount = {homeScreenState.carouselList.size})
     val isDragged by pagerState.interactionSource.collectIsDraggedAsState()
+    val openDialog = remember { mutableStateOf(false) }
+    val openDialogWeb = remember { mutableStateOf(false) }
+    val openDialogName = remember { mutableStateOf("") }
+    val locationUrl = remember { mutableStateOf("") }
+    val locationDrawable = remember { mutableIntStateOf(0) }
+
     if(isDragged.not()){
         with(pagerState){
             var currentPageKey by remember { mutableIntStateOf(0) }
@@ -88,9 +91,17 @@ fun HomeScreen(
             ) {
                 val image = homeScreenState.carouselList[it]
                 if (image.url.isEmpty()) {
-                    CarouselItem(image.drawable, image.name)
+                    CarouselItem(image.drawable, image.name, onClick = {
+                        openDialog.value = true
+                        openDialogName.value = image.name
+                        locationDrawable.value = image.drawable
+                    })
                 } else {
-                    CarouselItemWeb(url = image.url, drawableName = image.name)
+                    CarouselItemWeb(url = image.url, drawableName = image.name, onClick = {
+                        openDialogWeb.value = true
+                        openDialogName.value = image.name
+                        locationUrl.value = image.url
+                    })
                 }
 
             }
@@ -99,7 +110,10 @@ fun HomeScreen(
                 pagerState = pagerState,
                 modifier = Modifier.align(Alignment.BottomCenter)
             )
+            ImageView(name = openDialogName.value, imageUrl = locationUrl.value, openDialog = openDialogWeb)
+            ImageView(name = openDialogName.value, imageSrcInt = locationDrawable.intValue, openDialog = openDialog)
         }
+
     }
 }
 
@@ -124,60 +138,37 @@ fun DotIndicator(pageCount: Int, pagerState: PagerState, modifier: Modifier) {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CarouselItem(drawable: Int,drawableName: String) {
-    val rotationState = remember { mutableFloatStateOf(1f) }
-    val scale = remember { mutableFloatStateOf(1f) }
-    val offset = remember { mutableStateOf(Offset(0f,0f)) }
+fun CarouselItem(drawable: Int,drawableName: String,onClick:()->Unit) {
     Card(
-        modifier = Modifier.padding(10.dp)
-            .pointerInput (Unit){
-                detectTransformGestures{ centroId,pan,zoom,rotation ->
-                    scale.value *= zoom
-                    rotationState.floatValue += rotation
-                    offset.value = Offset(
-                        offset.value.x + (pan.x / density * scale.floatValue),
-                        offset.value.y + (pan.y / density * scale.floatValue)
-                    )
-                }
-            }) {
+        modifier = Modifier.padding(10.dp).fillMaxWidth()
+    , onClick = {
+        onClick.invoke()
+        }) {
         Image(
             painter = painterResource(id = drawable),
             contentDescription = drawableName,
-            modifier = Modifier.graphicsLayer {
-                scaleX = maxOf(.5f, maxOf(1f,scale.floatValue))
-                scaleY = maxOf(.5f, maxOf(1f,scale.floatValue))
-                rotationZ = rotationState.value
-                translationX = offset.value.x
-                translationY = offset.value.y
-            }
-
+            modifier=Modifier.fillMaxWidth()
         )
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CarouselItemWeb(url:String,drawableName:String){
-    val rotationState = remember { mutableFloatStateOf(1f) }
-    val scale = remember { mutableFloatStateOf(1f) }
+fun CarouselItemWeb(url:String,drawableName:String,onClick: ()->Unit){
     var placeholder: MemoryCache.Key? = null
     Card(
-        modifier = Modifier.padding(10.dp)
-            .pointerInput (Unit){
-                detectTransformGestures{ centroId,pan,zoom,rotation ->
-                    scale.value *= zoom
-                    rotationState.value += rotation
-                }}) {
+        modifier = Modifier.padding(30.dp).fillMaxWidth()
+        , onClick = {
+            onClick.invoke()
+        }   ) {
         AsyncImage(
-            modifier = Modifier.graphicsLayer {
-                scaleX = maxOf(.5f, maxOf(1f,scale.value))
-                scaleY = maxOf(.5f, maxOf(1f,scale.value))
-                rotationZ = rotationState.value
-            },
             model = url,
             error = ColorPainter(Color.Red),
             onSuccess = { placeholder = it.result.memoryCacheKey },
             contentDescription = drawableName
+            , modifier = Modifier.fillMaxWidth()
         )
     }
 }

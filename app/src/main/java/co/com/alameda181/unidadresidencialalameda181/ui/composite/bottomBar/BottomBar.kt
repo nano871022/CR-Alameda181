@@ -36,6 +36,7 @@ fun BottomBar(navigation:NavController){
         BottomNavigationItem(
             selected = currentRoute == "",
             label={ Text(text = "home") },
+            alwaysShowLabel = false,
             onClick = {  navigation.navigate(DrawerRoutes.HOME.name) },
             icon = { Icon(painterResource(id = R.drawable.baseline_home_24),contentDescription = "") }
 
@@ -44,6 +45,7 @@ fun BottomBar(navigation:NavController){
         BottomNavigationItem(
             selected = currentRoute == "",
             label={ Text(text = "call") },
+            alwaysShowLabel = false,
             onClick = { val phoneNumber = resource.getString(R.string.number_contact).replace(" ","")
                 val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$phoneNumber"))
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -55,6 +57,7 @@ fun BottomBar(navigation:NavController){
         BottomNavigationItem(
             selected = currentRoute == "",
             label={ Text(text = "WhatSapp") },
+            alwaysShowLabel = false,
             onClick = {
                 val phoneNumber = resource.getString(R.string.whatsapp_number)
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/$phoneNumber/"))
@@ -69,6 +72,7 @@ fun BottomBar(navigation:NavController){
         BottomNavigationItem(
             selected = currentRoute == "",
             label={ Text(text = "Email") },
+            alwaysShowLabel = false,
             onClick = {
                 val email = resource.getString(R.string.email_contact)
                 val intent = Intent(Intent.ACTION_SEND, Uri.parse("mailto:$email"))
@@ -86,7 +90,8 @@ fun BottomBar(navigation:NavController){
 
         BottomNavigationItem(
             selected = currentRoute == "",
-            label={ Text(text = "WebSite") },
+            label={ Text(text = "wWw.") },
+            alwaysShowLabel = true,
             onClick = {
                 openDialog.value = true
                 Handler(Looper.getMainLooper()).postDelayed( {
@@ -98,7 +103,9 @@ fun BottomBar(navigation:NavController){
                     true
                 },3000)
             },
-            icon = { Icon(painterResource(id = R.drawable.outline_web_24),contentDescription = "") }
+            icon = {
+            //    Icon(painterResource(id = R.drawable.outline_web_24),contentDescription = "")
+            }
 
         )
     }

@@ -15,8 +15,8 @@ android {
         applicationId = "co.com.alameda181.unidadresidencialalameda181"
         minSdk = 26
         targetSdk = 33
-        versionCode = 1_0_6
-        versionName = "V1.0.6 Se agrego conexcion a google drive para descargar imagenes desde esa carpeta."
+        versionCode = 1_0_8
+        versionName = "V1.0.8 Se agrego visualizado de imagenes en el home para hacer zoom y mover en la imagen y se eliminan los nombres de los iconos de la navegación inferior."
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
