@@ -11,11 +11,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/ScheduleModule" />
-            <option value="$PROJECT_DIR$/ServicesModule" />
-            <option value="$PROJECT_DIR$/aboutactivitymodule" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/connect-gdrive" />
             <option value="$PROJECT_DIR$/ui" />
           </set>
         </option>

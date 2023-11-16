@@ -41,7 +41,7 @@ fun ScheduleLocalRepair(){
 
     val scheduleOut = stringResource(id = R.string.schedule_out_dont_allow)
     val htmlScheduleOut = remember { HtmlCompat.fromHtml(scheduleOut, HtmlCompat.FROM_HTML_MODE_COMPACT)}
-    Row() {
+    Row {
         Icon(
             painter = painterResource(id = co.com.alameda181.unidadresidencialalameda181.about.R.drawable.baseline_schedule_24),
             contentDescription = stringResource(id = R.string.schedule_repair)

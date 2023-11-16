@@ -29,7 +29,7 @@ fun GeneralInformation(){
         .fillMaxSize()
         .padding(10.dp)) {
 
-        Row() {
+        Row {
             Icon(
                 painter = painterResource(id = R.drawable.baseline_info_24),
                 contentDescription = stringResource(

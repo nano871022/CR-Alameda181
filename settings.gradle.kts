@@ -17,3 +17,7 @@ rootProject.name = "UnidadResidencialAlameda181"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
 include(":ui")
+include(":connect-gdrive")
+include(":ScheduleModule")
+include(":ServicesModule")
+include(":aboutactivitymodule")
