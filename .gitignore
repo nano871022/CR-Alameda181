@@ -13,3 +13,14 @@
 .externalNativeBuild
 .cxx
 local.properties
+/ServicesModule/build
+connect-gdrive
+ServicesModule
+ServicesModule/build/
+ServicesModule/build/*
+/ServicesModule/build/
+/ServicesModule/build/*
+ScheduleModule
+aboutactivitymodule
+deploymentTargetDropDown.xml
+.idea/deploymentTargetDropDown.xml
