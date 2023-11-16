@@ -24,3 +24,6 @@ ScheduleModule
 aboutactivitymodule
 deploymentTargetDropDown.xml
 .idea/deploymentTargetDropDown.xml
+/alameda181-core/build/intermediates/incremental/debugAndroidTest-mergeJavaRes/zip-cache/+85ZQJMZLkKgMbG0BS2gPb76OI8=
+/alameda181-core/build/*
+/alameda181-core/src/main/res
