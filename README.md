@@ -23,6 +23,8 @@ it is necessary setting next projects
 
 ## Latest Version
 
-- 1.0.9 Last functional version before modulerize app
+- 1.0.10 Remove image view with rotation due it is not usefull, and deploy version with refactor code, now it is workin  multiple modules and inject dependency
 
 ## Historical Version
+
+- 1.0.9 Last functional version before modulerize app
