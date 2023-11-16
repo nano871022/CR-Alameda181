@@ -1,7 +1,7 @@
 package co.com.alameda181.unidadresidencialalameda181.model.HomeScreen
 
-import co.com.japl.interfaces.dtos.CarouselDTO
+import co.com.japl.alameda181.core.model.Carousel
 
 data class HomeScreenState(
-    val carouselList:List<CarouselDTO> = emptyList()
+    val carouselList:List<Carousel> = emptyList()
 )

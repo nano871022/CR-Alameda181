@@ -90,7 +90,7 @@ private fun Dialog(name:String,openDialog: MutableState<Boolean>,imageSrcInt:Int
                         ,modifier = Modifier.graphicsLayer {
                             scaleX = maxOf(.5f, maxOf(1f,scale.floatValue))
                             scaleY = maxOf(.5f, maxOf(1f,scale.floatValue))
-                            rotationZ = rotationState.value
+                            //rotationZ = rotationState.value
                             translationX = offset.value.x
                             translationY = offset.value.y
                         })
@@ -99,7 +99,7 @@ private fun Dialog(name:String,openDialog: MutableState<Boolean>,imageSrcInt:Int
                         modifier = Modifier.graphicsLayer {
                             scaleX = maxOf(.5f, maxOf(1f,scale.value))
                             scaleY = maxOf(.5f, maxOf(1f,scale.value))
-                            rotationZ = rotationState.value
+                          //  rotationZ = rotationState.value
                             translationX = offset.value.x
                             translationY = offset.value.y
                         },

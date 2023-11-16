@@ -15,8 +15,8 @@ android {
         applicationId = "co.com.alameda181.unidadresidencialalameda181"
         minSdk = 26
         targetSdk = 33
-        versionCode = 1_0_9
-        versionName = "V1.0.9 Se agrego visualizado de imagenes en el home para hacer zoom y mover en la imagen y se eliminan los nombres de los iconos de la navegación inferior."
+        versionCode = 1_0_10
+        versionName = "V1.0.10 Refactoriazcion del codigo para mejor funcionamiento y escalabilidad de la aplcacion, ademas se bloquea el zoom con giro ya q se vuelve malo el manejo."
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -63,8 +63,7 @@ dependencies {
     implementation(project(":ScheduleModule"))
     implementation(project(":aboutactivitymodule"))
     implementation(project(":ui"))
-    implementation(project(":connect-gdrive"))
-    implementation(project(":ServicesModule"))
+    implementation(project(":alameda181-core"))
 
     implementation("com.google.android.play:integrity:1.2.0")
     implementation("io.coil-kt:coil-compose:2.5.0")

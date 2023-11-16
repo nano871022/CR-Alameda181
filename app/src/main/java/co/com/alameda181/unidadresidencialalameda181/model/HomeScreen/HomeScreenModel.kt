@@ -2,26 +2,45 @@ package co.com.alameda181.unidadresidencialalameda181.model.HomeScreen
 
 import android.app.Application
 import android.content.Context
+import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.AndroidViewModel
-import co.com.alameda181.unidadresidencialalameda181.adapter.port.CarouselPort
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import co.com.alameda181.unidadresidencialalameda181.Aplication
+import co.com.alameda181.unidadresidencialalameda181.module.Module
+import co.com.alameda181.unidadresidencialalameda181.module.ModuleProvides
+import co.com.alameda181.unidadresidencialalameda181.module.MyEntryPoint
+import co.com.japl.alameda181.core.adapter.ports.inbound.CarouselPort
+import co.com.japl.alameda181.core.adapter.ports.inbound.interfaces.ICarousel
+import co.com.japl.alameda181.core.usercase.Carousel
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedInject
+import dagger.hilt.EntryPoints
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
+import java.util.Collections
 import javax.inject.Inject
 
 
+@RequiresApi(34)
 @HiltViewModel
-class HomeScreenModel @Inject constructor(application:Application): AndroidViewModel(application) {
+class HomeScreenModel @Inject constructor(private val application:Application): AndroidViewModel(application ) {
 
-    private lateinit var  carouselPort:CarouselPort
+    var carouselPort:ICarousel?=EntryPoints.get(application,MyEntryPoint::class.java).carouselPort()
     private val _uiState = MutableStateFlow(HomeScreenState())
     val uiState: StateFlow<HomeScreenState> = _uiState.asStateFlow()
 
     init{
-        val context = (application as Context)
-        carouselPort = CarouselPort(context)
-        val carouselList = carouselPort.getCarousel()
-        _uiState.value = HomeScreenState(carouselList)
+        viewModelScope.launch {
+            val carouselList = carouselPort?.getList() ?: Collections.emptyList()
+            _uiState.value = HomeScreenState(carouselList)
+
+
+        }
     }
+
 }
