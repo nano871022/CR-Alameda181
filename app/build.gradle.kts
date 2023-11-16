@@ -60,11 +60,7 @@ android {
 
 dependencies {
 
-    implementation(project(":ScheduleModule"))
-    implementation(project(":aboutactivitymodule"))
     implementation(project(":ui"))
-    implementation(project(":connect-gdrive"))
-    implementation(project(":alameda181-android-services-module"))
 
     implementation("com.google.android.play:integrity:1.2.0")
     implementation("io.coil-kt:coil-compose:2.5.0")
