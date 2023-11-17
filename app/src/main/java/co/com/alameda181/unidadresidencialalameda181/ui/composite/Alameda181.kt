@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
+import co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.bottomBar.BottomBar
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.drawer.drawerContent
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.navigator.Navigator
@@ -40,7 +41,9 @@ import co.com.alameda181.unidadresidencialalameda181.ui.composite.topbar.HomeTop
 
     ModalNavigationDrawer(
         drawerState = state
-        , drawerContent = { drawerContent(scope = scope, state = state, navController = navController) }
+        , drawerContent = {
+            drawerContent(scope = scope, state = state, navController = navController)
+        }
     ) {
         Scaffold(
             topBar = {
@@ -49,6 +52,7 @@ import co.com.alameda181.unidadresidencialalameda181.ui.composite.topbar.HomeTop
             bottomBar = {
                 BottomBar(navigation = navController)
             }
+
         ) {
             Navigator(navController = navController, modifier = Modifier.padding(it), context = context)
         }
@@ -57,9 +61,11 @@ import co.com.alameda181.unidadresidencialalameda181.ui.composite.topbar.HomeTop
 
 
 @RequiresApi(34)
-@Preview
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun preview(){
-    Alameda181(context = LocalContext.current)
+    MaterialThemeComposeUI {
+        Alameda181(context = LocalContext.current)
+    }
 }
 

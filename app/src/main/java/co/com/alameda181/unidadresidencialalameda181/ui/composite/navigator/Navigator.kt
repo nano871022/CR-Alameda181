@@ -39,6 +39,7 @@ import co.com.alameda181.unidadresidencialalameda181.utils.MAIN_MENU
 import co.com.alameda181.unidadresidencialalameda181.utils.MenuOptions
 import co.com.alameda181.unidadresidencialalameda181.utils.TopMenuOption
 
+@RequiresApi(34)
 @Composable
 fun NavigatorSplash(navController: NavHostController,modifier:Modifier,context:Context){
     NavHost(navController = navController, startDestination = MAIN_MENU.SPLASH.name,modifier = modifier) {

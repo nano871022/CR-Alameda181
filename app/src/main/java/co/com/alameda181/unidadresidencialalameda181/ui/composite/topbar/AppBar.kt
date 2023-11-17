@@ -121,7 +121,7 @@ object NavTo{
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
-@Preview(showBackground = true)
+@Preview(showBackground = true, showSystemUi = true)
 fun previewAppBar(){
     val pagerState = rememberPagerState {
         0

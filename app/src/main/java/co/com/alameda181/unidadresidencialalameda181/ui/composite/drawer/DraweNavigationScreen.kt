@@ -22,6 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI
 import co.com.alameda181.unidadresidencialalameda181.R
 import co.com.alameda181.unidadresidencialalameda181.model.MenuItem
 import co.com.alameda181.unidadresidencialalameda181.utils.DrawerRoutes
@@ -62,8 +63,10 @@ fun getMenus(resources:Resources):List<MenuItem>{
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview(showSystemUi = true)
+@Preview(showSystemUi = true, showBackground = true)
 @Composable
 fun preview(){
-    drawerContent(scope = rememberCoroutineScope(),state = rememberDrawerState(initialValue = DrawerValue.Closed),navController = rememberNavController())
+    MaterialThemeComposeUI {
+        drawerContent(scope = rememberCoroutineScope(),state = rememberDrawerState(initialValue = DrawerValue.Closed),navController = rememberNavController())
+    }
 }

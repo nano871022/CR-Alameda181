@@ -15,8 +15,8 @@ android {
         applicationId = "co.com.alameda181.unidadresidencialalameda181"
         minSdk = 26
         targetSdk = 33
-        versionCode = 1_0_10
-        versionName = "V1.0.10 Refactoriazcion del codigo para mejor funcionamiento y escalabilidad de la aplcacion, ademas se bloquea el zoom con giro ya q se vuelve malo el manejo."
+        versionCode = 1_0_11
+        versionName = "V1.0.11 Se arregla problema de mapa que no se mostraba"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
