@@ -15,8 +15,8 @@ android {
         applicationId = "co.com.alameda181.unidadresidencialalameda181"
         minSdk = 26
         targetSdk = 33
-        versionCode = 1_0_11
-        versionName = "V1.0.11 Se arregla problema de mapa que no se mostraba"
+        versionCode = 1_0_12
+        versionName = "V1.0.12 Se soluciona problema con la doble barra de navegacion"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {

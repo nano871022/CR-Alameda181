@@ -18,6 +18,7 @@ class MainActivity : ComponentActivity() {
     @RequiresApi(34)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        this.actionBar?.hide()
         setContent {
             val navController = rememberNavController()
             val context = LocalContext.current.applicationContext
