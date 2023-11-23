@@ -15,8 +15,8 @@ android {
         applicationId = "co.com.alameda181.unidadresidencialalameda181"
         minSdk = 26
         targetSdk = 33
-        versionCode = 1_0_12
-        versionName = "V1.0.12 Se soluciona problema con la doble barra de navegacion"
+        versionCode = 1_0_13
+        versionName = "V1.0.13 Se agrega link a google play de la aplicacion"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
