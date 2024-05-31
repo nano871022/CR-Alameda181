@@ -8,6 +8,9 @@ import co.com.alameda181.unidadresidencialalameda181.model.HomeScreen.HomeScreen
 import co.com.japl.alameda181.core.adapter.ports.inbound.CarouselPort
 import co.com.japl.alameda181.core.adapter.ports.inbound.interfaces.ICarousel
 import co.com.japl.alameda181.core.usercase.Carousel
+import co.com.japl.connect.gdrive.drive.GetFilesFromFolderShared
+import co.com.japl.connect.gdrive.firebase.realtime.Realtime
+import com.google.firebase.database.FirebaseDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,8 +35,21 @@ class ModuleProvides {
         return HomeScreenModel(application)
     }
 
+    @Singleton
+    @Provides
+    fun provideGDrive(context:Context): GetFilesFromFolderShared {
+        return GetFilesFromFolderShared(context)
+    }
 
+    @Provides
+    fun provideRealtimeFirebase(databaseFirebase:FirebaseDatabase): Realtime {
+        return Realtime(databaseFirebase)
+    }
 
+    @Provides
+    fun provideFirebaseRealtime():FirebaseDatabase{
+        return FirebaseDatabase.getInstance()
+    }
 
 
 }

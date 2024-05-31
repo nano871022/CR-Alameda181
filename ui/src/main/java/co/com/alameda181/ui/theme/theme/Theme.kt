@@ -1,9 +1,14 @@
 package co.com.alameda181.ui.theme.theme
 
 import android.app.Activity
+import android.content.res.Configuration
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
@@ -11,10 +16,12 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
@@ -22,7 +29,9 @@ private val DarkColorScheme = darkColorScheme(
     secondary = yellow_light,
     background = black,
     primaryContainer = yellow_light,
-    onPrimaryContainer = green
+    onPrimaryContainer = green,
+    onPrimary = yellow,
+    surface = white
 
 )
 
@@ -82,5 +91,68 @@ fun preview(){
 
     MaterialThemeComposeUI {
         Text(text="hi")
+    }
+}
+
+@Composable
+@Preview(showSystemUi = true, showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+fun previewDark(){
+
+    MaterialThemeComposeUI {
+        Text(text="hi")
+    }
+}
+
+
+@Composable
+@Preview(showSystemUi = true, showBackground = true)
+fun previewSurface(){
+
+    MaterialThemeComposeUI {
+        Surface {
+            Column {
+                Text(text = "hi")
+            }
+        }
+    }
+}
+
+@Composable
+@Preview(showSystemUi = true, showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+fun previewSurfaceDark(){
+
+    MaterialThemeComposeUI {
+        Surface {
+            Column {
+                Text(text = "hi")
+            }
+        }
+    }
+}
+
+
+@Composable
+@Preview(showSystemUi = true, showBackground = true)
+fun previewCard(){
+
+    MaterialThemeComposeUI {
+        Card(modifier = Modifier.padding(30.dp)) {
+            Column (modifier = Modifier.padding(30.dp)){
+                Text(text = "hi")
+            }
+        }
+    }
+}
+
+@Composable
+@Preview(showSystemUi = true, showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+fun previewCardDark(){
+
+    MaterialThemeComposeUI {
+        Card(modifier = Modifier.padding(30.dp)) {
+            Column (modifier = Modifier.padding(30.dp)){
+                Text(text = "hi")
+            }
+        }
     }
 }

@@ -11,6 +11,7 @@ enum class DrawerRoutes constructor(val title:Int,val icon:Int){
   //,RENTAL_INFORMATION(R.string.menu_renting_information,R.drawable.baseline_renting_24)
   ,LOCAL_REPAIRS(R.string.menu_local_repairs,R.drawable.baseline_repair_24)
   ,REGULATION(R.string.menu_regulation,R.drawable.baseline_rule_24)
+  ,DOCUMENTS_LIST(R.string.menu_documents_list,R.drawable.baseline_list_24)
 }
 
 enum class MenuOptions constructor(val title:Int,val icon:Int){

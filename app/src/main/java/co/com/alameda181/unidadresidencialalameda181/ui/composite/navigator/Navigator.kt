@@ -26,6 +26,7 @@ import co.com.alameda181.unidadresidencialalameda181.ui.composite.Alameda181
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.HomeScreen
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.splash.SplashScreen
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.AdministrationPayment
+import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.DocumentList
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.GeneralInformation
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.LocalRepairs
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.Location
@@ -79,6 +80,8 @@ fun Navigator(navController: NavHostController,modifier:Modifier,context:Context
         composable(DrawerRoutes.MOVEMENT_INFORMATION.name){ MovementInformation() }
 
         composable(DrawerRoutes.LOCAL_REPAIRS.name){ LocalRepairs() }
+
+        composable(DrawerRoutes.DOCUMENTS_LIST.name){ DocumentList()}
 
         //composable(DrawerRoutes.RENTAL_INFORMATION.name){ RentalInformation() }
     }

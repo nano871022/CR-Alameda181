@@ -42,7 +42,7 @@ import coil.memory.MemoryCache
 @Composable
 @ExperimentalMaterial3Api
 fun ImageView(name:String,imageSrcInt:Int,openDialog: MutableState<Boolean>){
-    if(openDialog.value){
+    if(openDialog.value && imageSrcInt > 0){
         Dialog(name,openDialog,imageSrcInt)
     }
 }
@@ -50,7 +50,7 @@ fun ImageView(name:String,imageSrcInt:Int,openDialog: MutableState<Boolean>){
 @Composable
 @ExperimentalMaterial3Api
 fun ImageView(name:String,imageUrl:String,openDialog: MutableState<Boolean>){
-    if(openDialog.value){
+    if(openDialog.value && imageUrl.isNotBlank()){
         Dialog(name,openDialog, urlImage = imageUrl)
     }
 }

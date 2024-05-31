@@ -190,4 +190,18 @@
     <string name="web_site_link">https://www.alameda181.com/</string>
 
     <string name="state">Bogotá - Cundinamarca</string>
+    <string name="download_file_name">Descargar Archivo %s</string>
+
+    <string name="doc_files_title">Documentos</string>
+    <string name="no_network_connection">Esta funcionalidad solo funciona con acceso a internet, conectese a una red de WiFi o activa los datos en el mobile</string>
+    <string name="description_folder_documents">
+        En este espacion podra encontrar la información relacionadas a los documentos y otros anexos sobre el manejo de la unidad residencial torres de san sebastian
+    </string>
+    <string name="there_arent_any_documents_to_show">No hay documentos para mostrar</string>
+    <string name="name_file">Nombre Archivo: </string>
+    <string name="create_date">Fecha Creación Archivo: </string>
+    <string name="version_file">Versión del Archivo: </string>
+    <string name="file_type">Tipo de Archivo: </string>
+    <string name="description_file">Descripción:</string>
+    <string name="menu_documents_list">Lista Documentos</string>
 </resources>

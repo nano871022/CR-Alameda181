@@ -1,0 +1,52 @@
+{
+  "project_info": {
+    "project_number": "1060406001869",
+    "project_id": "cralameda181",
+    "storage_bucket": "cralameda181.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060406001869:android:3550fc1d098a07baa7a984",
+        "android_client_info": {
+          "package_name": "co.com.alameda181.unidadresidencialalameda181"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1060406001869-pfko2s5sgmbcig56gjlmeao9i91iddli.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.com.alameda181.unidadresidencialalameda181",
+            "certificate_hash": "77eccd24a9ba0fa81afafcd628894521d4f2d8da"
+          }
+        },{
+          "client_id": "1060406001869-pfko2s5sgmbcig56gjlmeao9i91iddli.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.com.alameda181.unidadresidencialalameda181",
+            "certificate_hash": "c863db5704299ada73149260aaa3bdb9175cdd2e"
+          }
+        },{
+          "client_id": "1060406001869-pfko2s5sgmbcig56gjlmeao9i91iddli.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.com.alameda181.unidadresidencialalameda181",
+            "certificate_hash": "dfa2867ccae80251985046091580805e1b7ecad0"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3_WIh37dKrl6LhjosP4S4ezUIJwJlhNk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

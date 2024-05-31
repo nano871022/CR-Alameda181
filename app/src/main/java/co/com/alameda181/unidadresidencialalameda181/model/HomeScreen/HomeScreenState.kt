@@ -4,4 +4,5 @@ import co.com.japl.alameda181.core.model.Carousel
 
 data class HomeScreenState(
     val carouselList:List<Carousel> = emptyList()
+
 )
