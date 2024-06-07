@@ -1,6 +1,7 @@
 package co.com.alameda181.unidadresidencialalameda181.ui.composite.views
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.net.Uri
 import android.os.Handler
 import android.os.Looper
@@ -14,12 +15,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -37,7 +40,7 @@ fun AdministrationPayment(){
     val resource = context.resources
     val openDialog = remember { mutableStateOf(false) }
     val html = remember {HtmlCompat.fromHtml(resource.getString(R.string.pse_info),HtmlCompat.FROM_HTML_MODE_LEGACY)}
-
+    val colorPrimary = MaterialTheme.colorScheme.primary.toArgb()
     Column( verticalArrangement = Arrangement.Center
         , horizontalAlignment = Alignment.CenterHorizontally
     , modifier = Modifier
@@ -50,7 +53,8 @@ fun AdministrationPayment(){
                     movementMethod = LinkMovementMethod.getInstance()
                 }
                       },
-            update = {it.text = html},
+            update = {it.text = html
+                     it.setTextColor(colorPrimary)},
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
 
@@ -100,9 +104,17 @@ fun DialogMessage(onDismiss :()->Unit){
 }
 
 @Composable
-@Preview(showBackground = true)
+@Preview(showBackground = true, showSystemUi = true, uiMode = Configuration.UI_MODE_NIGHT_NO)
 fun previewAdministrationPayment(){
 
+    co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI {
+        AdministrationPayment()
+    }
+}
+
+@Composable
+@Preview(showBackground = true, showSystemUi = true, backgroundColor = 0XFF111111, uiMode = Configuration.UI_MODE_NIGHT_YES)
+fun previewAdministrationPaymentNight(){
     co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI {
         AdministrationPayment()
     }

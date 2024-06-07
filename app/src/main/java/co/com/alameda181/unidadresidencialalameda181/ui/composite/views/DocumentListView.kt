@@ -86,7 +86,8 @@ private fun Body(viewModel: DocumentListModelView){
     val context = LocalContext.current
 
     Title(title = stringResource(id = R.string.doc_files_title),
-        icon = painterResource(id = R.drawable.baseline_folder_24)
+        icon = painterResource(id = R.drawable.baseline_folder_24),
+        colorTitleText = MaterialTheme.colorScheme.primary
     ) {
 
         Surface (modifier = Modifier.padding(Dimensions.PADDING_SHORT)
