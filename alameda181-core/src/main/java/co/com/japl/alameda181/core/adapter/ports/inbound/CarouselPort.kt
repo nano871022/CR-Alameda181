@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 class CarouselPort @Inject constructor(private var carouselUserCase:co.com.japl.alameda181.core.usercase.interfaces.ICarousel) : ICarousel{
     @RequiresApi(34)
-    override fun getList(): List<Carousel> {
+    override suspend fun getList(): List<Carousel> {
         return carouselUserCase.getCarousel() ?: Collections.emptyList()
     }
 }

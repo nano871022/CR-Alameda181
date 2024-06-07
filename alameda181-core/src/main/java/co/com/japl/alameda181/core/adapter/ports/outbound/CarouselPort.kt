@@ -12,7 +12,7 @@ import java.util.Collections
 import javax.inject.Inject
 
 @RequiresApi(34)
-class CarouselPort @Inject constructor (var context: Context) {
+class CarouselPort @Inject constructor (var context: Context, var driveSvc:GDrivePort) {
 
     lateinit var carouselHome:ICarouselHome
     lateinit var carouselHomeLocal:ICarouselHome
@@ -22,12 +22,24 @@ class CarouselPort @Inject constructor (var context: Context) {
         carouselHomeLocal = CarouselLocalImpl(context!!)
         carouselHomeDrive = CarouselDriveImpl(context!!)
     }
-    fun getCarousel():List<CarouselDTO>{
+    suspend fun getCarousel():List<CarouselDTO>{
         try {
             init()
-            val list = carouselHomeDrive.getCarouselHome().toMutableList()
+            val list = driveSvc.getImg().map {
+                CarouselDTO(
+                    id = it.id,
+                    name = it.name,
+                    url = it.url,
+                    description = it.description,
+                    active = it.active,
+                    drawable = it.drawable,
+                    order = it.order
+                )
+            } .toMutableList()
+                //carouselHomeDrive.getCarouselHome().toMutableList()
             list.addAll(carouselHome.getCarouselHome())
             list.addAll(carouselHomeLocal.getCarouselHome())
+
             return list
         } catch (e: Exception) {
             Log.e("CarouselPort#getCarousel",e.message.toString())

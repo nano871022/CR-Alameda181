@@ -96,9 +96,9 @@ fun HomeScreen(
 
     ) {
 
-            Carousel(model = homeScreenModel, pagerState = pagerState, homeScreenState = homeScreenState, openState = openDialogWeb, openStateName = openDialogName, openStateUrl = locationUrl, openStateSrc = locationDrawable)
+        Carousel(model = homeScreenModel, pagerState = pagerState, homeScreenState = homeScreenState, openState = openDialogWeb, openStateName = openDialogName, openStateUrl = locationUrl, openStateSrc = locationDrawable)
 
-            AllImage(model = homeScreenModel, openState = openDialog, openStateName = openDialogName, openStateUrl = locationUrl, openStateSrc = locationDrawable)
+        AllImage(model = homeScreenState, openState = openDialog, openStateName = openDialogName, openStateUrl = locationUrl, openStateSrc = locationDrawable)
 
         }
     ImageView(name = openDialogName.value, imageUrl = locationUrl.value, openDialog = openDialogWeb)
@@ -145,35 +145,34 @@ private fun Carousel(model: HomeScreenModel, pagerState :PagerState, homeScreenS
 
 @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
 @Composable
-private fun AllImage(model: HomeScreenModel, openState: MutableState<Boolean>,openStateName: MutableState<String>,openStateUrl: MutableState<String>,openStateSrc: MutableIntState) {
-    val list = remember {model.uiState.value.carouselList}
+private fun AllImage(model: HomeScreenState, openState: MutableState<Boolean>,openStateName: MutableState<String>,openStateUrl: MutableState<String>,openStateSrc: MutableIntState) {
     var placeholder: MemoryCache.Key? = null
     LazyVerticalGrid(columns = GridCells.Fixed(6)) {
-        items(list.size) {
-            if (list[it].url.isBlank()) {
+        items(model.carouselList.size) {
+            if (model.carouselList[it].url.isBlank()) {
                 Image(
-                    painter = painterResource(id = list[it].drawable)
+                    painter = painterResource(id = model.carouselList[it].drawable)
                     , contentDescription = ""
                     , modifier = Modifier.clickable {
-                        openStateName.value = "Image ${list[it].name}"
-                        openStateSrc.value = list[it].drawable
+                        openStateName.value = "Image ${model.carouselList[it].name}"
+                        openStateSrc.value = model.carouselList[it].drawable
                         openStateUrl.value = ""
                         openState.value = true
                     }
                 )
             }else{
                 AsyncImage(
-                    model = ImageRequest.Builder(LocalContext.current).data(list[it].url).crossfade(true).build(),
+                    model = ImageRequest.Builder(LocalContext.current).data(model.carouselList[it].url).crossfade(true).build(),
                     error = ColorPainter(Color.Red),
                     onSuccess = { placeholder = it.result.memoryCacheKey },
                     placeholder = painterResource(id = co.com.alameda181.unidadresidencialalameda181.about.R.drawable.baseline_schedule_24),
-                    contentDescription = list[it].name
+                    contentDescription = model.carouselList[it].name
                     , modifier = Modifier
                         .fillMaxWidth()
                         .clickable {
-                            openStateName.value = "Image ${list[it].name}"
-                            openStateSrc.value = -1
-                            openStateUrl.value = list[it].url
+                            openStateName.value = "Image ${model.carouselList[it].name}"
+                            openStateSrc.intValue = -1
+                            openStateUrl.value = model.carouselList[it].url
                             openState.value = true
                         }
                 )

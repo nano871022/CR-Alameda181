@@ -11,7 +11,7 @@ import javax.inject.Inject
 class Carousel @Inject constructor(private var carouselOutBout: CarouselPort) : ICarousel{
 
     @RequiresApi(34)
-    override fun getCarousel():List<Carousel>{
+    override suspend fun getCarousel():List<Carousel>{
         return carouselOutBout?.getCarousel()?.map ( CarouselPortMapper::mapper ) ?: Collections.emptyList()
     }
 

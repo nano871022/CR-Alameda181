@@ -7,5 +7,5 @@ import dagger.hilt.android.components.ActivityComponent
 
 interface ICarousel {
 
-    fun getCarousel():List<Carousel>
+    suspend fun getCarousel():List<Carousel>
 }
