@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import androidx.core.view.ContentInfoCompat.Flags
@@ -21,6 +22,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import co.com.alameda181.unidadresidencialalameda181.BuildConfig
+import co.com.alameda181.unidadresidencialalameda181.R
 import co.com.alameda181.unidadresidencialalameda181.about.AboutActivity
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.Alameda181
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.HomeScreen
@@ -82,6 +84,20 @@ fun Navigator(navController: NavHostController,modifier:Modifier,context:Context
         composable(DrawerRoutes.LOCAL_REPAIRS.name){ LocalRepairs() }
 
         composable(DrawerRoutes.DOCUMENTS_LIST.name){ DocumentList()}
+
+        composable (DrawerRoutes.PQRs.name){
+                val email = stringResource(id = R.string.admin_email)
+                val template = stringResource(id = R.string.msg_pqr_template)
+                val subject = stringResource(id = R.string.pqr_subject_template)
+                Intent(Intent.ACTION_SEND).apply {
+                    type = "vnd.android.cursor.item/email"
+                    setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    putExtra(Intent.EXTRA_EMAIL, arrayOf(email))
+                    putExtra(Intent.EXTRA_SUBJECT, subject)
+                    putExtra(Intent.EXTRA_TEXT, template.trimIndent())
+                    context.startActivity(this)
+                }
+        }
 
         //composable(DrawerRoutes.RENTAL_INFORMATION.name){ RentalInformation() }
     }

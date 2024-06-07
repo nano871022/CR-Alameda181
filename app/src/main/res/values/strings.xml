@@ -93,7 +93,7 @@
         <b>Puede realizar sus pagos de administración por PSE</b>
         ]]>
     </string>
-
+        <string name="admin_email">dmonalameda181@gmail.com</string>
         <string name="menu_home">Home</string>
         <string name="menu_location">Ubicación</string>
         <string name="menu_general_inforamtion">Información Generál</string>
@@ -204,4 +204,22 @@
     <string name="file_type">Tipo de Archivo: </string>
     <string name="description_file">Descripción:</string>
     <string name="menu_documents_list">Lista Documentos</string>
+    <string name="menu_pqrs">Enviar PQR\'s</string>
+    <string name="msg_pqr_template">
+                        Estimada Conjunto Residencial Alameda 181,
+
+                        Por medio del presente mensaje, deseo presentar una [Petición/Queja/Reclamo] relacionada con [Asunto específico del PQR].
+
+                        [Brindar una descripción detallada del PQR, incluyendo la fecha, hora, lugar y las personas involucradas, si aplica.]
+
+                        [Especificar la solicitud que se realiza a la Unidad Residencial CR Alameda 181. Por ejemplo, solicitar una reparación, una aclaración, una disculpa, etc.]
+
+                        Agradezco su atención a este PQR y espero una pronta respuesta y solución.
+
+                        Atentamente,
+
+                        [nombre completo]
+                        Tel:. [número de contacto]
+    </string>
+    <string name="pqr_subject_template">PQR  - [Asunto específico del PQR]</string>
 </resources>

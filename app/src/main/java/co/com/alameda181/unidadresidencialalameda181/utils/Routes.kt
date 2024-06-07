@@ -12,6 +12,7 @@ enum class DrawerRoutes constructor(val title:Int,val icon:Int){
   ,LOCAL_REPAIRS(R.string.menu_local_repairs,R.drawable.baseline_repair_24)
   ,REGULATION(R.string.menu_regulation,R.drawable.baseline_rule_24)
   ,DOCUMENTS_LIST(R.string.menu_documents_list,R.drawable.baseline_list_24)
+  ,PQRs(R.string.menu_pqrs,R.drawable.baseline_email_24)
 }
 
 enum class MenuOptions constructor(val title:Int,val icon:Int){
