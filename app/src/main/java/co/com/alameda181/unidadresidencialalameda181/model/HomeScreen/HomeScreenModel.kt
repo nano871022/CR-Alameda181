@@ -38,6 +38,7 @@ class HomeScreenModel @Inject constructor(private val application:Application): 
     private val _uiState = MutableStateFlow(HomeScreenState())
     val uiState: StateFlow<HomeScreenState> = _uiState.asStateFlow()
 
+    val isLoader:MutableState<Boolean> = mutableStateOf(true)
      val openState: MutableState<Boolean>  = mutableStateOf(false)
      val openStateName: MutableState<String> = mutableStateOf("")
      val openStateSrc: MutableIntState = mutableIntStateOf(0)
@@ -47,6 +48,9 @@ class HomeScreenModel @Inject constructor(private val application:Application): 
         viewModelScope.launch {
             val carouselList = carouselPort?.getList() ?: Collections.emptyList()
             _uiState.value = HomeScreenState(carouselList)
+            if(carouselList.isNotEmpty()){
+                isLoader.value = false
+            }
 
 
         }

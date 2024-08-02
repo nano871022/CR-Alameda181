@@ -9,6 +9,7 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import co.com.alameda181.unidadresidencialalameda181.R
+import co.com.alameda181.unidadresidencialalameda181.utils.NetworkUtils
 import co.com.japl.alameda181.core.adapter.ports.inbound.DocumentPort
 import co.com.japl.alameda181.core.model.Document
 
@@ -16,9 +17,9 @@ import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 @dagger.hilt.android.lifecycle.HiltViewModel
-class DocumentListModelView @Inject constructor(var documentSvc: DocumentPort?): ViewModel() {
+class DocumentListModelView @Inject constructor(var documentSvc: DocumentPort? ): ViewModel() {
 
-
+    var preview:Boolean = false
     private val _progress = mutableFloatStateOf(0f)
     private val _loader = mutableStateOf(true)
     private val _list = mutableStateListOf<Document>()
@@ -33,6 +34,10 @@ class DocumentListModelView @Inject constructor(var documentSvc: DocumentPort?):
         }
     }
 
+    fun isNetworkAvailable(context: Context):Boolean{
+        if(preview)return true
+        return NetworkUtils.isNetworkAvailable(context)
+    }
 
     fun main() = runBlocking {
         _progress.floatValue = 0.1f

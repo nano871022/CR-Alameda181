@@ -2,7 +2,10 @@ package co.com.alameda181.unidadresidencialalameda181.ui.composite.navigator
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.util.Log
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -37,6 +40,7 @@ import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.PaymentI
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.Regulation
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.RentalInformation
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.Schedule
+import co.com.alameda181.unidadresidencialalameda181.ui.composite.views.SendEmailPqrs
 import co.com.alameda181.unidadresidencialalameda181.utils.DrawerRoutes
 import co.com.alameda181.unidadresidencialalameda181.utils.MAIN_MENU
 import co.com.alameda181.unidadresidencialalameda181.utils.MenuOptions
@@ -85,19 +89,7 @@ fun Navigator(navController: NavHostController,modifier:Modifier,context:Context
 
         composable(DrawerRoutes.DOCUMENTS_LIST.name){ DocumentList()}
 
-        composable (DrawerRoutes.PQRs.name){
-                val email = stringResource(id = R.string.admin_email)
-                val template = stringResource(id = R.string.msg_pqr_template)
-                val subject = stringResource(id = R.string.pqr_subject_template)
-                Intent(Intent.ACTION_SEND).apply {
-                    type = "vnd.android.cursor.item/email"
-                    setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    putExtra(Intent.EXTRA_EMAIL, arrayOf(email))
-                    putExtra(Intent.EXTRA_SUBJECT, subject)
-                    putExtra(Intent.EXTRA_TEXT, template.trimIndent())
-                    context.startActivity(this)
-                }
-        }
+        composable (DrawerRoutes.PQRs.name){SendEmailPqrs()}
 
         //composable(DrawerRoutes.RENTAL_INFORMATION.name){ RentalInformation() }
     }

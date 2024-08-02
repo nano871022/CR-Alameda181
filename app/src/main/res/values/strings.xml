@@ -195,7 +195,7 @@
     <string name="doc_files_title">Documentos</string>
     <string name="no_network_connection">Esta funcionalidad solo funciona con acceso a internet, conectese a una red de WiFi o activa los datos en el mobile</string>
     <string name="description_folder_documents">
-        En este espacio podrá encontrar la información relacionadas a los documentos y otros anexos sobre el manejo de la Conjunto Residencial Alameda 181
+        En este espacio podrá encontrar la información relacionadas a los documentos y otros anexos sobre el manejo del Conjunto Residencial Alameda 181
     </string>
     <string name="there_arent_any_documents_to_show">No hay documentos para mostrar</string>
     <string name="name_file">Nombre Archivo: </string>
@@ -206,20 +206,24 @@
     <string name="menu_documents_list">Lista Documentos</string>
     <string name="menu_pqrs">Enviar PQR\'s</string>
     <string name="msg_pqr_template">
-                        Estimada Conjunto Residencial Alameda 181,
+        <![CDATA[
+                        Estimada Conjunto Residencial Alameda 181,\n\n
 
-                        Por medio del presente mensaje, deseo presentar una [Petición/Queja/Reclamo] relacionada con [Asunto específico del PQR].
+                        Por medio del presente mensaje, deseo presentar una [Petición/Queja/Reclamo] relacionada con [Asunto específico del PQR].\n\n
 
-                        [Brindar una descripción detallada del PQR, incluyendo la fecha, hora, lugar y las personas involucradas, si aplica.]
+                        [Brindar una descripción detallada del PQR, incluyendo la fecha, hora, lugar y las personas involucradas, si aplica.]\n\n
 
-                        [Especificar la solicitud que se realiza a la Unidad Residencial CR Alameda 181. Por ejemplo, solicitar una reparación, una aclaración, una disculpa, etc.]
+                        [Especificar la solicitud que se realiza a la Unidad Residencial CR Alameda 181. Por ejemplo, solicitar una reparación, una aclaración, una disculpa, etc.]\n\n
 
-                        Agradezco su atención a este PQR y espero una pronta respuesta y solución.
+                        Agradezco su atención a este PQR y espero una pronta respuesta y solución.\n\n
 
-                        Atentamente,
+                        Atentamente,\n\n
 
-                        [nombre completo]
-                        Tel:. [número de contacto]
+                        [nombre completo]\n\n
+                        Tel:. [número de contacto]\n\n
+        ]]>
     </string>
     <string name="pqr_subject_template">PQR  - [Asunto específico del PQR]</string>
+    <string name="theres_not_email_app_installed">No hay aplicación de correos</string>
+    <string name="loading">...Cargando...</string>
 </resources>

@@ -15,8 +15,8 @@ android {
         applicationId = "co.com.alameda181.unidadresidencialalameda181"
         minSdk = 26
         targetSdk = 33
-        versionCode = 1_0_15_003
-        versionName = "V1.0.15 build 003 Se agrega cambio de imagenes y archivos sobre drive de google para mostrar en la aplicación"
+        versionCode = 1_0_15_007
+        versionName = "V1.0.15 build 007 Se agrega cambio de imagenes y archivos sobre drive de google para mostrar en la aplicación"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {

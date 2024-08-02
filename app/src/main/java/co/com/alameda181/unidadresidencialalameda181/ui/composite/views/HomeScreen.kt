@@ -28,7 +28,9 @@ import androidx.compose.material.icons.automirrored.rounded.InsertDriveFile
 import androidx.compose.material.icons.rounded.InsertDriveFile
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableIntState
@@ -42,10 +44,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.painter.ColorPainter
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -75,36 +81,67 @@ fun HomeScreen(
     val openDialogName = remember { homeScreenModel.openStateName }
     val locationUrl = remember { homeScreenModel.openStateUrl }
     val locationDrawable = remember { homeScreenModel.openStateSrc }
+    val loader = remember { homeScreenModel.isLoader }
 
-    if(isDragged.not()){
-        with(pagerState){
-            var currentPageKey by remember { mutableIntStateOf(0) }
-            LaunchedEffect(key1 = currentPageKey){
-                delay(DELAY_CAROUSEL)
-                val nextPage = (currentPage + 1) % pageCount
-                animateScrollToPage(nextPage)
-                currentPageKey = nextPage
+    if(loader.value){
+        Column{
+
+            LinearProgressIndicator(modifier=Modifier.fillMaxWidth())
+            Text(text = stringResource(id = R.string.loading))
+        }
+    }else {
+
+        if (isDragged.not()) {
+            with(pagerState) {
+                var currentPageKey by remember { mutableIntStateOf(0) }
+                LaunchedEffect(key1 = currentPageKey) {
+                    delay(DELAY_CAROUSEL)
+                    val nextPage = (currentPage + 1) % pageCount
+                    animateScrollToPage(nextPage)
+                    currentPageKey = nextPage
+                }
             }
         }
-    }
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(5.dp)
-                , verticalArrangement = Arrangement.Top
-                , horizontalAlignment = Alignment.CenterHorizontally
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(5.dp),
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.CenterHorizontally
 
-    ) {
+        ) {
 
-        Carousel(model = homeScreenModel, pagerState = pagerState, homeScreenState = homeScreenState, openState = openDialogWeb, openStateName = openDialogName, openStateUrl = locationUrl, openStateSrc = locationDrawable)
+            Carousel(
+                model = homeScreenModel,
+                pagerState = pagerState,
+                homeScreenState = homeScreenState,
+                openState = openDialogWeb,
+                openStateName = openDialogName,
+                openStateUrl = locationUrl,
+                openStateSrc = locationDrawable
+            )
 
-        AllImage(model = homeScreenState, openState = openDialog, openStateName = openDialogName, openStateUrl = locationUrl, openStateSrc = locationDrawable)
+            AllImage(
+                model = homeScreenState,
+                openState = openDialog,
+                openStateName = openDialogName,
+                openStateUrl = locationUrl,
+                openStateSrc = locationDrawable
+            )
 
         }
-    ImageView(name = openDialogName.value, imageUrl = locationUrl.value, openDialog = openDialogWeb)
-    ImageView(name = openDialogName.value, imageSrcInt = locationDrawable.intValue, openDialog = openDialog)
+        ImageView(
+            name = openDialogName.value,
+            imageUrl = locationUrl.value,
+            openDialog = openDialogWeb
+        )
+        ImageView(
+            name = openDialogName.value,
+            imageSrcInt = locationDrawable.intValue,
+            openDialog = openDialog
+        )
 
-
+    }
 }
 
 @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
@@ -174,7 +211,8 @@ private fun AllImage(model: HomeScreenState, openState: MutableState<Boolean>,op
                             openStateSrc.intValue = -1
                             openStateUrl.value = model.carouselList[it].url
                             openState.value = true
-                        }
+                        },
+                    colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onBackground, blendMode = BlendMode.ColorBurn)
                 )
             }
         }

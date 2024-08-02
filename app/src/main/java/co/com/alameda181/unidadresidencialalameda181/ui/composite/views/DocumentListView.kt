@@ -57,13 +57,16 @@ fun DocumentList(viewModel: DocumentListModelView = hiltViewModel()) {
     val loader by remember {viewModel.loader}
     val progress by remember {viewModel.progress}
 
-    if(NetworkUtils.isNetworkAvailable(LocalContext.current)) {
+    if(viewModel.isNetworkAvailable(LocalContext.current)) {
         LaunchedEffect(key1 = Unit) {
             viewModel.main()
         }
 
         if (loader) {
-            LinearProgressIndicator(progress, modifier = Modifier.fillMaxWidth())
+            Column {
+                LinearProgressIndicator(progress, modifier = Modifier.fillMaxWidth())
+                Text(text = stringResource(id = R.string.loading))
+            }
         } else {
             Body(viewModel);
         }
@@ -74,6 +77,7 @@ fun DocumentList(viewModel: DocumentListModelView = hiltViewModel()) {
             Text(
                 text = stringResource(id = R.string.no_network_connection),
                 textAlign = TextAlign.Center,
+                color = MaterialTheme.colorScheme.onBackground,
                 modifier = Modifier.fillMaxWidth()
             )
         }
@@ -140,11 +144,11 @@ private fun Item(doc: Document, onClick:(Document)->Unit){
                     .width(60.dp)
                     .height(60.dp)
                     .align(alignment = Alignment.CenterHorizontally)
-                ,tint=MaterialTheme.colorScheme.onPrimary
+                ,tint=MaterialTheme.colorScheme.primary
             )
 
             Text(text = doc.name
-                , color=MaterialTheme.colorScheme.surface
+                , color=MaterialTheme.colorScheme.onSurfaceVariant
                 , textAlign = TextAlign.Center
                 , modifier=Modifier.fillMaxWidth())
 
@@ -264,6 +268,7 @@ internal fun previewDocumentList1Dark(){
 private fun getViewModel(): DocumentListModelView {
     val viewModel = DocumentListModelView(null)
     viewModel.loader.value = false
+    viewModel.preview = true
     viewModel.list.add(
         Document(
         name = "Document 1",
