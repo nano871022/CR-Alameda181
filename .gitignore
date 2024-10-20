@@ -39,3 +39,5 @@ deploymentTargetDropDown.xml
 /ScheduleModule/
 /ServicesModule
 /ServicesModule/
+/ui/src/main/java/co/com/japl/ui/theme/values/
+/ui/src/main/java/co/com/japl/ui/utils/
