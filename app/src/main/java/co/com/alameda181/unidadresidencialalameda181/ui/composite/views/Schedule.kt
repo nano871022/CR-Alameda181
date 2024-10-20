@@ -23,7 +23,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import co.com.alameda181.unidadresidencialalameda181.R
-import co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI
+import co.com.japl.ui.theme.MaterialThemeComposeUI
 import co.com.japl.schedule.ui.schedule.ScheduleBoard
 
 @Composable

@@ -38,7 +38,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.hilt.navigation.compose.hiltViewModel
-import co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI
+import co.com.japl.ui.theme.MaterialThemeComposeUI
 import co.com.alameda181.unidadresidencialalameda181.R
 import co.com.alameda181.unidadresidencialalameda181.model.Documents.DocumentListModelView
 import co.com.alameda181.unidadresidencialalameda181.utils.NetworkUtils
@@ -64,7 +64,10 @@ fun DocumentList(viewModel: DocumentListModelView = hiltViewModel()) {
 
         if (loader) {
             Column {
-                LinearProgressIndicator(progress, modifier = Modifier.fillMaxWidth())
+                LinearProgressIndicator(
+                    progress = { progress },
+                    modifier = Modifier.fillMaxWidth(),
+                )
                 Text(text = stringResource(id = R.string.loading))
             }
         } else {
@@ -72,7 +75,7 @@ fun DocumentList(viewModel: DocumentListModelView = hiltViewModel()) {
         }
     }else{
         Title(title = stringResource(id = R.string.doc_files_title),
-            icon = painterResource(id = R.drawable.baseline_folder_24)
+            iconPainter = painterResource(id = R.drawable.baseline_folder_24)
         ) {
             Text(
                 text = stringResource(id = R.string.no_network_connection),
@@ -88,10 +91,11 @@ fun DocumentList(viewModel: DocumentListModelView = hiltViewModel()) {
 private fun Body(viewModel: DocumentListModelView){
     val list = remember {viewModel.list}
     val context = LocalContext.current
+    val colorBackground = MaterialTheme.colorScheme.onBackground
 
     Title(title = stringResource(id = R.string.doc_files_title),
-        icon = painterResource(id = R.drawable.baseline_folder_24),
-        colorTitleText = MaterialTheme.colorScheme.primary
+        iconPainter = painterResource(id = R.drawable.baseline_folder_24)
+      // , colorTitleText = MaterialTheme.colorScheme.primary
     ) {
 
         Surface (modifier = Modifier.padding(Dimensions.PADDING_SHORT)

@@ -19,7 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import co.com.alameda181.unidadresidencialalameda181.R
-import co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI
+import co.com.japl.ui.theme.MaterialThemeComposeUI
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.GoogleMap

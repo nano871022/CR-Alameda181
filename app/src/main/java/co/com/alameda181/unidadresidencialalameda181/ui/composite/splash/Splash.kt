@@ -68,7 +68,7 @@ fun AnimationSplash(scaleAnimation:Animatable<Float,AnimationVector1D>,navContro
 @Composable
 @Preview
 fun previewSplash() {
-    co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI {
+    co.com.japl.ui.theme.MaterialThemeComposeUI {
         DesignSplash()
     }
 }

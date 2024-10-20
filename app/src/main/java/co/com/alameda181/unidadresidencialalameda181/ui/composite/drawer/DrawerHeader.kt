@@ -82,7 +82,7 @@ fun DrawerHeader() {
 @Preview(showSystemUi = true)
 @Composable
 fun previewHeader(){
-    co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI {
+    co.com.japl.ui.theme.MaterialThemeComposeUI {
         DrawerHeader()
     }
 }

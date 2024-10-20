@@ -47,7 +47,7 @@ fun PaymentInformation() {
 @Composable
 @Preview(showBackground = true, showSystemUi = true, uiMode = Configuration.UI_MODE_NIGHT_NO)
 fun previewPaymentInformation() {
-    co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI {
+    co.com.japl.ui.theme.MaterialThemeComposeUI {
         PaymentInformation()
     }
 }
@@ -55,7 +55,7 @@ fun previewPaymentInformation() {
 @Composable
 @Preview(showBackground = true, showSystemUi = true, backgroundColor = 0XFF111111, uiMode = Configuration.UI_MODE_NIGHT_YES)
 fun previewPaymentInformationNight() {
-    co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI(darkTheme = true) {
+    co.com.japl.ui.theme.MaterialThemeComposeUI(darkTheme = true) {
         PaymentInformation()
     }
 }

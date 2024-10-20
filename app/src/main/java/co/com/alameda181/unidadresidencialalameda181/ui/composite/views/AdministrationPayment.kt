@@ -107,7 +107,7 @@ fun DialogMessage(onDismiss :()->Unit){
 @Preview(showBackground = true, showSystemUi = true, uiMode = Configuration.UI_MODE_NIGHT_NO)
 fun previewAdministrationPayment(){
 
-    co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI {
+    co.com.japl.ui.theme.MaterialThemeComposeUI {
         AdministrationPayment()
     }
 }
@@ -115,7 +115,7 @@ fun previewAdministrationPayment(){
 @Composable
 @Preview(showBackground = true, showSystemUi = true, backgroundColor = 0XFF111111, uiMode = Configuration.UI_MODE_NIGHT_YES)
 fun previewAdministrationPaymentNight(){
-    co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI {
+    co.com.japl.ui.theme.MaterialThemeComposeUI {
         AdministrationPayment()
     }
 }

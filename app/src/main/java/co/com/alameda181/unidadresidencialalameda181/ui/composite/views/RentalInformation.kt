@@ -12,7 +12,7 @@ fun RentalInformation() {
 @Composable
 @Preview
 fun previewRentalInformation() {
-    co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI {
+    co.com.japl.ui.theme.MaterialThemeComposeUI {
         RentalInformation()
     }
 }

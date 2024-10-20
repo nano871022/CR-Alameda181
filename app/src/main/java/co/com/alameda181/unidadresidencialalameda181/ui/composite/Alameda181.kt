@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
-import co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI
+import co.com.japl.ui.theme.MaterialThemeComposeUI
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.bottomBar.BottomBar
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.drawer.drawerContent
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.navigator.Navigator

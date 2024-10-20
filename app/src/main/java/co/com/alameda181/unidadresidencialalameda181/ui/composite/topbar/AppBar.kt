@@ -35,7 +35,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import co.com.alameda181.unidadresidencialalameda181.R
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.menuoptions.MenuOptions
-import co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI
+import co.com.japl.ui.theme.MaterialThemeComposeUI
 import co.com.alameda181.unidadresidencialalameda181.utils.DrawerRoutes
 import co.com.alameda181.unidadresidencialalameda181.utils.TopMenuOption
 import kotlinx.coroutines.launch
@@ -103,7 +103,7 @@ fun HomeTopAppBar(
                         NavTo.nav(navController,it)
                     })
                 }
-                , colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Color.Gray.copy(alpha = 0.2f))
+                , colors = TopAppBarDefaults.mediumTopAppBarColors(containerColor = Color.Gray.copy(alpha = 0.2f))
             )
 }
 

@@ -10,7 +10,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 import co.com.alameda181.unidadresidencialalameda181.ui.composite.navigator.NavigatorSplash
-import co.com.alameda181.ui.theme.theme.MaterialThemeComposeUI
+import co.com.japl.ui.theme.MaterialThemeComposeUI
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
