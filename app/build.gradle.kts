@@ -17,8 +17,8 @@ android {
         applicationId = "co.com.alameda181.unidadresidencialalameda181"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1_0_16_008
-        versionName = "V1.0.16 build 008 SSe actualiza version de android para usar, requerimiento de google"
+        versionCode = 1_0_17_009
+        versionName = "V1.0.17 build 009 Se mejora el proyecto para ser modularizado"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
