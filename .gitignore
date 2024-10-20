@@ -29,3 +29,14 @@ deploymentTargetDropDown.xml
 /alameda181-core/src/main/res
 /app/release/app-release.aab
 /ScheduleModule/japl-android-schedule-module/
+/aboutactivitymodule
+/aboutactivitymodule/
+/aboutactivitymodule/*
+/connect-gdrive
+/connect-gdrive/
+/japl-android-graphs
+/japl-android-graphs/
+/ScheduleModule
+/ScheduleModule/
+/ServicesModule
+/ServicesModule/
