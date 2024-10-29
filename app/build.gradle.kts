@@ -17,8 +17,8 @@ android {
         applicationId = "co.com.alameda181.unidadresidencialalameda181"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1_0_17_009
-        versionName = "V1.0.17 build 009 Se mejora el proyecto para ser modularizado"
+        versionCode = 1_0_18_010
+        versionName = "V1.0.18 build 010 Se incorpora tarea de mensajes enviados por el administrador"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -75,6 +75,8 @@ dependencies {
     implementation(project(":aboutactivitymodule"))
     implementation(project(":alameda181-core"))
     implementation(project(":connect-gdrive"))
+    implementation(project(":model"))
+    implementation(project(":ServicesModule"))
 
     implementation("com.google.firebase:firebase-analytics-ktx")
     implementation("com.google.firebase:firebase-crashlytics-ktx")
@@ -98,9 +100,11 @@ dependencies {
     implementation("androidx.compose.material:material:1.7.4")
     implementation("androidx.compose.material:material-icons-core:1.7.4")
     implementation("androidx.compose.material:material-icons-extended:1.7.4")
+    implementation("androidx.work:work-runtime-ktx:2.9.1")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
 
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.google.firebase:firebase-messaging-ktx:24.0.3")
 
     kapt("com.google.dagger:hilt-android-compiler:2.52")
     implementation("com.google.dagger:hilt-android:2.52")
