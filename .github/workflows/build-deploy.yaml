@@ -36,30 +36,9 @@ jobs:
              echo "Version Code: ${{ steps.getVersion.outputs.VersionCode }}"
              echo "Version Name: ${{ steps.getVersion.outputs.VersionName }}"
       
-      - name: added signing in gradle
-        run: |
-            cat << EOF >> app/build.gradle.kts
-              android {
-                signingConfigs {
-                  create("release") {
-                    storeFile = file("./uralameda181_keystorepassword.jks")
-                    storePassword = "${{ secrets.SIGNING_STORE_PASSWORD }}"
-                    keyAlias = "${{ secrets.SIGNING_KEY_ALIAS }}"
-                    keyPassword = "${{ secrets.SIGNING_KEY_PASSWORD }}"
-                  }
-                }
-
-              buildTypes {
-                getByName("release") {
-                  signingConfig = signingConfigs.getByName("release")
-                }
-              }
-            }
-            EOF
-
       - name: build and scan
         continue-on-error: true
-        run: ./gradlew bundleRelease --no-daemon --no-parallel --info # build --scan --warning-mode all --stacktrace --info
+        run: ./gradlew bundleRelease --no-daemon --no-parallel --info -Pandroid.injected.signing.store.file=./uralameda181_keystorepassword.jks -Pandroid.injected.signing.store.password=${{ secrets.SIGNING_STORE_PASSWORD }} -Pandroid.injected.signing.key.alias=${{ secrets.SIGNING_KEY_ALIAS }} -Pandroid.injected.signing.key.password=${{ secrets.SIGNING_KEY_PASSWORD }}
       
       - name: Upload builds reports 
         uses: actions/upload-artifact@v4
