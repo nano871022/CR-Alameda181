@@ -48,6 +48,7 @@ runs:
         run: |
               ln -s ./source-app/java/ ./app/src/main/java
               ln -s ./source-app/res/ ./app/src/main/res
+              ls .app/src/main
               ls ./app/src/main/res
               ls ./app/src/main/java
         shell: bash
