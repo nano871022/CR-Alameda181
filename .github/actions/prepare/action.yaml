@@ -20,8 +20,8 @@ runs:
               rm -rf ui
               rm -rf model
               rm -rf alameda181-core
-              rm -ft ./app/src/main/java
-              rm -ft ./app/src/main/res
+              rm -rf ./app/src/main/java
+              rm -rf ./app/src/main/res
               
         shell: bash
 
