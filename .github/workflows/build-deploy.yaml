@@ -26,8 +26,8 @@ jobs:
       - name: get version code and name of app
         id: getVersion
         run: |
-              VERSION_CODE=$(grep -m 1 'versionCode' app/build.gradle | awk '{print $2}')
-              VERSION_NAME=$(grep -m 1 'versionName' app/build.gradle | awk -F '"' '{print $2}')
+              VERSION_CODE=$(grep -m 1 'versionCode' app/build.gradle.kts | awk '{print $2}')
+              VERSION_NAME=$(grep -m 1 'versionName' app/build.gradle.kts | awk -F '"' '{print $2}')
               echo "VersionCode=$VERSION_CODE" >> $GITHUB_OUTPUT
               echo "VersionName=$VERSION_NAME" >> $GITHUB_OUTPUT
               
@@ -38,7 +38,7 @@ jobs:
       
       - name: added signing in gradle
         run: |
-            cat << EOF >> app/build.gradle
+            cat << EOF >> app/build.gradle.kts
               android {
                 signingConfigs {
                   create("release") {
