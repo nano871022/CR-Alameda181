@@ -49,7 +49,7 @@ runs:
       - name: Get Service Module by Alameda 181
         uses: actions/checkout@v4
         with: 
-         repository: ${{ github-actor }}/alameda181-android-services-module
+         repository: ${{ github.actor }}/alameda181-android-services-module
          path: ./ServicesModule
 
       - name: Get japl-android-google-connect-module
