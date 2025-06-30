@@ -20,8 +20,8 @@ runs:
               rm -rf ui
               rm -rf model
               rm -rf alameda181-core
-              rm -ft ./app/src/main/java
-              rm -ft ./app/src/main/res
+              rm -rf ./app/src/main/java
+              rm -rf ./app/src/main/res
               
         shell: bash
 
@@ -46,8 +46,8 @@ runs:
 
       - name: Apply code in right folder
         run: |
-              cp ./source-app/java ./app/src/main/java
-              cp ./source-app/res ./app/src/main/res
+              ln -s ./source-app/java/ ./app/src/main/java
+              ln -s ./source-app/res/ ./app/src/main/res
 
       - name: Get japl-android-about-module
         uses: actions/checkout@v4
