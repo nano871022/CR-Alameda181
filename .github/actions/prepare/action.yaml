@@ -46,7 +46,7 @@ runs:
 
       - name: Apply code in right folder
         run: |
-              ls ./source-app
+              ls ./source-app/res
               ln -s ./source-app/java/ ./app/src/main/java
               ln -s ./source-app/res/ ./app/src/main/res
               ls ./app/src/main/res
