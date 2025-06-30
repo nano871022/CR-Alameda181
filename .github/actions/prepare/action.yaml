@@ -48,7 +48,7 @@ runs:
         run: |
               ln -s ./source-app/java/ ./app/src/main/java
               ln -s ./source-app/res/ ./app/src/main/res
-              ls ./app/src/main/res/xml
+              ls ./app/src/main/res
         shell: bash
 
       - name: Get japl-android-about-module
