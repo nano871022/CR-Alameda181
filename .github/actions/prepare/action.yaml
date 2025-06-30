@@ -46,8 +46,8 @@ runs:
 
       - name: Apply code in right folder
         run: |
-              cp ./source-app/java ./app/src/main/java
-              cp ./source-app/res ./app/src/main/res
+              ln -s ./source-app/java/ ./app/src/main/java
+              ln -s ./source-app/res/ ./app/src/main/res
         shell: bash
 
       - name: Get japl-android-about-module
