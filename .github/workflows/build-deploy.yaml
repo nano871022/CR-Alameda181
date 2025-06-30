@@ -26,7 +26,7 @@ jobs:
       - name: get version code and name of app
         id: getVersion
         run: |
-              VERSION_CODE=$(grep -m 1 'versionCode' app/build.gradle.kts | awk '{print $3')
+              VERSION_CODE=$(grep -m 1 'versionCode' app/build.gradle.kts | awk '{print $3}')
               VERSION_NAME=$(grep -m 1 'versionName' app/build.gradle.kts | awk -F '"' '{print $2}')
               echo "VersionCode=$VERSION_CODE" >> $GITHUB_OUTPUT
               echo "VersionName=$VERSION_NAME" >> $GITHUB_OUTPUT
