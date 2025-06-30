@@ -48,6 +48,7 @@ runs:
         run: |
               cp ./source-app/java ./app/src/main/java
               cp ./source-app/res ./app/src/main/res
+        shell: bash
 
       - name: Get japl-android-about-module
         uses: actions/checkout@v4
