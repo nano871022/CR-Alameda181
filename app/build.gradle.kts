@@ -17,8 +17,8 @@ android {
         applicationId = "co.com.alameda181.unidadresidencialalameda181"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1_0_18_010
-        versionName = "V1.0.18 build 010 Se incorpora tarea de mensajes enviados por el administrador"
+        versionCode = 1_0_20_013
+        versionName = "V1.0.20 build 013 Se incorpora tarea de mensajes enviados por el administrador"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
