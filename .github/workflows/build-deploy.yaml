@@ -39,11 +39,13 @@ jobs:
       - name: build and scan
         continue-on-error: true
         run: |
+              REPO_ROOT=$(pwd)
+              JKS_PATH="$REPO_ROOT/app/uralameda181_keystorepassword.jks"
               ./gradlew bundleRelease \
                 --no-daemon \
                 --no-parallel \
                 --info \
-                -Pandroid.injected.signing.store.file=./uralameda181_keystorepassword.jks \
+                -Pandroid.injected.signing.store.file="$JKS_PATH" \
                 -Pandroid.injected.signing.store.password=${{ secrets.SIGNING_STORE_PASSWORD }} \
                 -Pandroid.injected.signing.key.alias=${{ secrets.SIGNING_KEY_ALIAS }} \
                 -Pandroid.injected.signing.key.password=${{ secrets.SIGNING_KEY_PASSWORD }}
