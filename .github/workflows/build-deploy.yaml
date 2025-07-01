@@ -43,6 +43,8 @@ jobs:
                 --no-daemon \
                 --no-parallel \
                 --info \
+                --debug \
+                --stacktrace \
                 -Pandroid.injected.signing.store.file=./app/uralameda181_keystorepassword.jks \
                 -Pandroid.injected.signing.store.password=${{ secrets.SIGNING_STORE_PASSWORD }} \
                 -Pandroid.injected.signing.key.alias=${{ secrets.SIGNING_KEY_ALIAS }} \
