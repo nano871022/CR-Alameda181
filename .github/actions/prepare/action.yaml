@@ -48,8 +48,8 @@ runs:
         run: |
               mkdir ./app/src/main/java
               mkdir ./app/src/main/res
-              cp -Rv ./japl-android-homeconnect-source-app/java/*  ./app/src/main/java
-              cp -Rv ./japl-android-homeconnect-source-app/res/*   ./app/src/main/res
+              cp -Rv ./japl-android-homeconnect-source-app/java/*  ./app/src/main/java/
+              cp -Rv ./japl-android-homeconnect-source-app/res/*   ./app/src/main/res/
         shell: bash
 
       - name: Get japl-android-about-module
