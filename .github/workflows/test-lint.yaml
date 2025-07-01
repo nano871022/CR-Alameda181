@@ -37,3 +37,10 @@ jobs:
                 ./japl-android-graphs/build/reports
                 ./japl-android-about-module/build/reports
                 ./connect-gdrive/build/reports
+                ./ui/build/intermediates/lint_intermediate_text_report/debug
+                ./ServicesModule/build/reports
+                ./model/build/reports
+                ./japl-android-graphs/build/reports
+                ./connect-gdrive/build/reports
+                ./alameda181-core/build/reports
+                
