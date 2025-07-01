@@ -42,13 +42,14 @@ runs:
         uses: actions/checkout@v4
         with:
           repository: ${{ github.actor }}/japl-android-homeconnect-source-app
-          path: ./source-app
+          path: ./japl-android-homeconnect-source-app
 
       - name: Apply code in right folder
         run: |
+              ls ./japl-android-homeconnect-source-app/res
               ls ./app/src/main
-              ln -s ./source-app/java ./app/src/main/java
-              ln -s ./source-app/res ./app/src/main/res
+              ln -s ./japl-android-homeconnect-source-app/java  ./app/src/main/java
+              ln -s ./japl-android-homeconnect-source-app/res   ./app/src/main/res
               ls ./app/src/main
               ls ./app/src/main/res
               ls ./app/src/main/java
