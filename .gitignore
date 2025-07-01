@@ -15,6 +15,7 @@
 local.properties
 /ServicesModule/build
 connect-gdrive
+/app/google-service.json
 ServicesModule
 ServicesModule/build/
 ServicesModule/build/*
