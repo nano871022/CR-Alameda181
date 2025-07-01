@@ -40,7 +40,6 @@ runs:
         with:
           repository: ${{ github.actor }}/japl-android-homeconnect-core
           path: ./alameda181-core
-          ref: alameda181
 
       - name: Get Source App
         uses: actions/checkout@v4
