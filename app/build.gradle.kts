@@ -11,14 +11,14 @@ plugins {
 
 android {
     namespace = "co.com.alameda181.unidadresidencialalameda181"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "co.com.alameda181.unidadresidencialalameda181"
         minSdk = 26
-        targetSdk = 34
-        versionCode = 1_0_20_014
-        versionName = "V1.0.20 build 014 Se incorpora tarea de mensajes enviados por el administrador"
+        targetSdk = 35
+        versionCode = 1_0_20_015
+        versionName = "V1.0.20 build 015 Target SDK 35"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
