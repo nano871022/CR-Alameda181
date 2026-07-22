@@ -11,14 +11,14 @@ plugins {
 
 android {
     namespace = "co.com.alameda181.unidadresidencialalameda181"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "co.com.alameda181.unidadresidencialalameda181"
         minSdk = 26
-        targetSdk = 35
-        versionCode = 1_0_20_015
-        versionName = "V1.0.20 build 015 Target SDK 35"
+        targetSdk = 36
+        versionCode = 1_0_20_016
+        versionName = "V1.0.20 build 016 Target SDK 36"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
