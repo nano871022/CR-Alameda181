@@ -37,7 +37,6 @@ jobs:
              echo "Version Name: ${{ steps.getVersion.outputs.VersionName }}"
       
       - name: build and scan
-        continue-on-error: true
         run: |
               REPO_ROOT=$(pwd)
               JKS_PATH="$REPO_ROOT/app/uralameda181_keystorepassword.jks"
@@ -61,7 +60,7 @@ jobs:
 
       - name: Upload Build Release
         uses: actions/upload-artifact@v4
-        if: always()
+        if: success()
         with:
           name: build-release
           path: |
