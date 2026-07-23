@@ -50,6 +50,7 @@ android {
           baseline = file("lint-baseline.xml")
     }
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
@@ -82,6 +83,8 @@ dependencies {
     implementation(project(":connect-gdrive"))
     implementation(project(":model"))
     implementation(project(":ServicesModule"))
+
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
 
     implementation("com.google.firebase:firebase-analytics-ktx")
     implementation("com.google.firebase:firebase-crashlytics-ktx")
