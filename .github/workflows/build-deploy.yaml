@@ -52,7 +52,7 @@ jobs:
       
       - name: Upload builds reports 
         uses: actions/upload-artifact@v4
-        if: always()
+        if: success()
         with:
           name: build-reports
           path: |
